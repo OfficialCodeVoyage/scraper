@@ -1,0 +1,226 @@
+# Tools the dev-intel tab of the brief already knows (scout's packaged list). A tool a post names that is not
+# here (by name or alias, any case; a version or tier at the end is ignored, so "Kling 4.0" is Kling) is marked
+# NEW in the brief. A profile adds its own under known_tools.tools, or sets known_tools.include_default: false
+# to replace this list. Compiled on 2026-10-20.
+tools:
+  # ---- video_gen ----
+  - {name: Kling, aliases: ["Kling AI", "Kling 1.6", "Kling 2.1", "Kling 2.5 Turbo", "Kling 3", "Kling 4", "Kling 4.0", "Kuaishou Kling", "可灵"], category: video_gen}
+  - {name: Veo, aliases: ["Veo 2", "Veo 3", "Veo 3.1", "Veo 4", "Google Veo", "Flow by Google", "Google Flow"], category: video_gen}
+  - {name: Seedance, aliases: ["Seedance 1.0", "Seedance 2.0", "Seedance 2.5", "Seedance 2.0 Mini", "Dreamina Seedance", "Dola Seedance", "ByteDance Seedance", "Dreamina", "即梦"], category: video_gen}
+  - {name: MiniMax, aliases: ["Hailuo", "Hailuo AI", "Hailuo 02", "Hailuo 2.3", "MiniMax Video", "MiniMax H3", "MiniMax M3", "MiniMax M3.1 Flash"], category: video_gen}
+  - {name: Runway, aliases: ["RunwayML", "Runway ML", "Runway Gen-3", "Runway Gen-4", "Runway Gen-4.5", "Runway Aleph", "Act-Two"], category: video_gen}
+  - {name: Luma, aliases: ["Luma AI", "Luma Labs", "Dream Machine", "Ray2", "Ray3", "Luma Ray"], category: video_gen}
+  - {name: Pika, aliases: ["Pika Labs", "Pika 2.2", "Pika 2.5"], category: video_gen}
+  - {name: Sora, aliases: ["Sora 2", "OpenAI Sora"], category: video_gen}
+  - {name: Wan, aliases: ["Wan 2.1", "Wan 2.2", "Wan 2.5", "Wan 3.0", "Wan 3.0 Prime", "Alibaba Wan", "Wan Video", "Wan-Animate"], category: video_gen}
+  - {name: HunyuanVideo, aliases: ["Hunyuan Video", "Tencent Hunyuan", "HunyuanVideo 1.5"], category: video_gen}
+  - {name: LTX, aliases: ["LTX Video", "LTX-2", "LTXV", "Lightricks LTX"], category: video_gen}
+  - {name: PixVerse, aliases: ["Pixverse V5", "Pixverse V6"], category: video_gen}
+  - {name: Vidu, aliases: ["Vidu Q2", "Shengshu Vidu"], category: video_gen}
+  - {name: Grok Imagine, aliases: ["xAI Grok Imagine", "Grok Video"], category: video_gen}
+  - {name: Higgsfield, aliases: ["Higgsfield AI", "Higgsfield Cinema Studio", "Higgsfield Soul", "Higgsfield Popcorn"], category: video_gen}
+  - {name: HeyGen, aliases: ["HeyGen Avatar", "HeyGen Video 1", "HeyGen Video Agent", "HeyGen Avatar IV"], category: video_gen}
+  - {name: Synthesia, aliases: ["Synthesia Express", "Synthesia avatars"], category: video_gen}
+  - {name: D-ID, aliases: ["DID", "D-ID Agents"], category: video_gen}
+  - {name: Hedra, aliases: ["Hedra Character-3"], category: video_gen}
+  - {name: OmniHuman, aliases: ["OmniHuman-1", "ByteDance OmniHuman"], category: video_gen}
+  - {name: Mochi, aliases: ["Genmo Mochi", "Mochi 1"], category: video_gen}
+  - {name: CogVideoX, aliases: ["CogVideo", "Zhipu CogVideoX"], category: video_gen}
+  - {name: Genie, aliases: ["Genie 3", "Google Genie"], category: video_gen}
+  - {name: InVideo, aliases: ["InVideo AI", "invideo.io"], category: video_gen}
+  - {name: Pictory, aliases: ["Pictory AI"], category: video_gen}
+  - {name: Vidrush, aliases: ["VidRush", "Vidrush AI"], category: video_gen}
+  - {name: Vsub, aliases: ["V-Sub", "Vsub AI", "vsub.io"], category: video_gen}
+  - {name: Subscene, aliases: ["Subscene AI"], category: video_gen}
+  - {name: Fliki, aliases: ["Fliki AI"], category: video_gen}
+  - {name: Lumen5, aliases: ["Lumen 5"], category: video_gen}
+  - {name: Freepik, aliases: ["Freepik AI Suite", "Freepik Spaces", "Freepik Video"], category: video_gen}
+  # ---- image_gen ----
+  - {name: Nano Banana, aliases: ["Nano Banana 2", "Nano Banana 2.1", "Nano Banana Pro", "Gemini 2.5 Flash Image", "Gemini 3 Pro Image", "Gemini Image"], category: image_gen}
+  - {name: gpt-image, aliases: ["gpt-image-1", "gpt-image-1.5", "gpt-image-2", "gpt-image-2.5-sunburst", "gpt-image-2.5-flare", "GPT Image", "GPT-4o image", "ChatGPT Images", "DALL-E", "DALL-E 3", "DALL·E"], category: image_gen}
+  - {name: FLUX, aliases: ["FLUX.1", "FLUX.1 Kontext", "FLUX.2", "FLUX 2", "FLUX 3", "Flux 3 Max", "Flux 3 Klein", "Flux Kontext", "Flux Pro", "Flux Dev", "Flux Schnell", "Black Forest Labs", "BFL"], category: image_gen}
+  - {name: Midjourney, aliases: ["MJ", "Midjourney v7", "Midjourney v8", "Midjourney Video"], category: image_gen}
+  - {name: Seedream, aliases: ["Seedream 4", "Seedream 4.5", "Seedream 5.0", "Seedream 5.0 Pro", "ByteDance Seedream"], category: image_gen}
+  - {name: Ideogram, aliases: ["Ideogram 3", "Ideogram 3.0"], category: image_gen}
+  - {name: Recraft, aliases: ["Recraft V3", "Recraft V4"], category: image_gen}
+  - {name: Leonardo, aliases: ["Leonardo.ai", "Leonardo AI", "Leonardo Phoenix"], category: image_gen}
+  - {name: Stable Diffusion, aliases: ["SDXL", "SD3.5", "Stable Diffusion 3", "Stability AI", "Stable Diffusion XL", "SD 1.5"], category: image_gen}
+  - {name: Krea, aliases: ["Krea AI", "Krea 1", "Krea 2", "Krea 3"], category: image_gen}
+  - {name: Imagen, aliases: ["Imagen 4", "Google Imagen"], category: image_gen}
+  - {name: Qwen-Image, aliases: ["Qwen Image", "Qwen-Image-Edit", "Qwen Image Edit"], category: image_gen}
+  - {name: HiDream, aliases: ["HiDream-I1"], category: image_gen}
+  - {name: Adobe Firefly, aliases: ["Firefly", "Firefly Video", "Firefly Image"], category: image_gen}
+  - {name: Magnific, aliases: ["Magnific AI", "Magnific upscaler"], category: image_gen}
+  - {name: Reve, aliases: ["Reve Image"], category: image_gen}
+  # ---- tts (voice, speech-to-text, cloning) ----
+  - {name: ElevenLabs, aliases: ["Eleven Labs", "11Labs", "Eleven v3", "Eleven v4", "Eleven v4 Turbo", "Eleven Multilingual", "Eleven Realtime", "ElevenCreative", "ElevenAgents", "ElevenReader", "Eleven Music", "ElevenLabs Scribe", "Scribe v2", "Instant Voice Clone", "Professional Voice Clone", "PVC"], category: tts}
+  - {name: Cartesia, aliases: ["Cartesia Sonic", "Sonic-3", "Sonic 3"], category: tts}
+  - {name: OpenAI TTS, aliases: ["gpt-4o-mini-tts", "OpenAI voice", "ChatGPT voice", "Realtime API voice"], category: tts}
+  - {name: Gemini TTS, aliases: ["Gemini speech", "Gemini 3.8 text-to-speech", "Google AI Studio TTS", "Chirp 3", "Google Cloud TTS", "WaveNet"], category: tts}
+  - {name: Fish Audio, aliases: ["Fish Speech", "OpenAudio", "Fish Audio S1", "Fish Audio Drama 3", "Fish Drama 3"], category: tts}
+  - {name: PlayHT, aliases: ["Play.ht", "PlayAI", "Play Dialog"], category: tts}
+  - {name: Kokoro, aliases: ["Kokoro-82M", "Kokoro TTS"], category: tts}
+  - {name: Chatterbox, aliases: ["Resemble Chatterbox", "Chatterbox TTS"], category: tts}
+  - {name: Resemble AI, aliases: ["Resemble"], category: tts}
+  - {name: Murf, aliases: ["Murf AI", "Murf.ai"], category: tts}
+  - {name: WellSaid, aliases: ["WellSaid Labs"], category: tts}
+  - {name: Speechify, aliases: ["Speechify Studio"], category: tts}
+  - {name: LOVO, aliases: ["Genny by LOVO"], category: tts}
+  - {name: Voxtral, aliases: ["Mistral Voxtral", "Voxtral 3"], category: tts}
+  - {name: Hume, aliases: ["Hume AI", "Octave TTS"], category: tts}
+  - {name: Kyutai, aliases: ["Pocket TTS", "Kyutai TTS", "Moshi"], category: tts}
+  - {name: Dia, aliases: ["Nari Labs Dia", "Dia TTS", "Dia 1.6B"], category: tts}
+  - {name: F5-TTS, aliases: ["F5 TTS"], category: tts}
+  - {name: XTTS, aliases: ["Coqui XTTS", "Coqui TTS"], category: tts}
+  - {name: Qwen-TTS, aliases: ["Qwen3-TTS", "Qwen TTS"], category: tts}
+  - {name: Sesame, aliases: ["Sesame CSM", "CSM-1B"], category: tts}
+  - {name: Orpheus, aliases: ["Orpheus TTS"], category: tts}
+  - {name: VibeVoice, aliases: ["Microsoft VibeVoice"], category: tts}
+  - {name: Whisper, aliases: ["OpenAI Whisper", "WhisperX", "faster-whisper", "whisper.cpp", "Whisper large-v3"], category: tts}
+  - {name: Deepgram, aliases: ["Deepgram Nova", "Nova-3"], category: tts}
+  - {name: AssemblyAI, aliases: ["Assembly AI", "Universal-2"], category: tts}
+  # ---- music_sfx ----
+  - {name: Suno, aliases: ["Suno AI", "Suno v4.5", "Suno v5", "Suno Studio"], category: music_sfx}
+  - {name: Udio, aliases: ["Udio AI"], category: music_sfx}
+  - {name: Epidemic Sound, aliases: ["Epidemic", "EpidemicSound"], category: music_sfx}
+  - {name: Artlist, aliases: ["Artlist.io", "Artlist music"], category: music_sfx}
+  - {name: Soundstripe, aliases: [], category: music_sfx}
+  - {name: Uppbeat, aliases: [], category: music_sfx}
+  - {name: Musicbed, aliases: [], category: music_sfx}
+  - {name: YouTube Audio Library, aliases: ["YouTube Studio audio library", "YT Audio Library"], category: music_sfx}
+  - {name: Freesound, aliases: ["freesound.org"], category: music_sfx}
+  - {name: Openverse, aliases: ["Openverse audio", "CC Search"], category: music_sfx}
+  - {name: Stable Audio, aliases: ["Stable Audio 2", "Stable Audio 2.5", "Stable Audio Open"], category: music_sfx}
+  - {name: Lyria, aliases: ["Google Lyria", "Lyria 2", "Lyria 3", "Lyria RealTime"], category: music_sfx}
+  - {name: MiniMax Music, aliases: ["MiniMax Music 3", "Music-2.0"], category: music_sfx}
+  - {name: YuE, aliases: ["YuE2", "YuE-s1"], category: music_sfx}
+  - {name: ACE-Step, aliases: ["ACE Step"], category: music_sfx}
+  - {name: Mubert, aliases: [], category: music_sfx}
+  - {name: Soundraw, aliases: [], category: music_sfx}
+  - {name: AIVA, aliases: [], category: music_sfx}
+  # ---- editor ----
+  - {name: CapCut, aliases: ["CapCut Pro", "CapCut Desktop", "Cap Cut"], category: editor}
+  - {name: DaVinci Resolve, aliases: ["Resolve", "DaVinci", "Resolve Studio", "Blackmagic DaVinci"], category: editor}
+  - {name: Premiere Pro, aliases: ["Adobe Premiere", "Premiere", "Adobe Premiere Pro"], category: editor}
+  - {name: Final Cut Pro, aliases: ["Final Cut", "FCP", "FCPX"], category: editor}
+  - {name: Descript, aliases: ["Descript Underlord"], category: editor}
+  - {name: VEED, aliases: ["Veed.io"], category: editor}
+  - {name: Kapwing, aliases: [], category: editor}
+  - {name: Opus Clip, aliases: ["OpusClip"], category: editor}
+  - {name: Topaz, aliases: ["Topaz Video", "Topaz Video AI", "Topaz Gigapixel", "Topaz Photo AI", "Topaz Labs", "Topaz Astra"], category: editor}
+  - {name: Filmora, aliases: ["Wondershare Filmora"], category: editor}
+  - {name: Clipchamp, aliases: [], category: editor}
+  - {name: iMovie, aliases: [], category: editor}
+  - {name: Captions, aliases: ["Captions app", "Captions Mirage", "Mirage Studio"], category: editor}
+  - {name: Submagic, aliases: [], category: editor}
+  - {name: Vizard, aliases: ["Vizard.ai"], category: editor}
+  - {name: Gling, aliases: ["Gling AI"], category: editor}
+  - {name: Canva, aliases: ["Canva AI", "Canva Video"], category: editor}
+  - {name: Photoshop, aliases: ["Adobe Photoshop"], category: editor}
+  - {name: Figma, aliases: ["Figma Make"], category: editor}
+  - {name: Kdenlive, aliases: [], category: editor}
+  - {name: Shotcut, aliases: [], category: editor}
+  - {name: Adobe Express, aliases: [], category: editor}
+  - {name: Lightworks, aliases: [], category: editor}
+  # ---- motion ----
+  - {name: HyperFrames, aliases: ["Hyperframes", "HyperFrames Studio", "HeyGen Hyperframes", "hyperframes-mcp", "hyperframes-edit"], category: motion}
+  - {name: Remotion, aliases: ["Remotion Skills", "Remotion Lambda"], category: motion}
+  - {name: After Effects, aliases: ["Adobe After Effects", "AE", "AfterFX"], category: motion}
+  - {name: Blender, aliases: ["Blender 4", "Blender Grease Pencil", "Blender MCP"], category: motion}
+  - {name: Claude Motion, aliases: ["Claude motion graphics"], category: motion}
+  - {name: Manim, aliases: ["Manim Community", "manimgl", "3Blue1Brown Manim"], category: motion}
+  - {name: Motion Canvas, aliases: [], category: motion}
+  - {name: Lottie, aliases: ["LottieFiles", "Bodymovin", "dotLottie"], category: motion}
+  - {name: Rive, aliases: [], category: motion}
+  - {name: Cavalry, aliases: ["Cavalry Studio"], category: motion}
+  - {name: Spline, aliases: ["Spline 3D"], category: motion}
+  - {name: Jitter, aliases: ["Jitter.video"], category: motion}
+  # ---- agent (LLMs and coding agents) ----
+  - {name: Claude, aliases: ["Anthropic", "Sonnet", "Opus", "Claude Opus", "Claude Sonnet", "Claude Haiku", "Opus 5.5", "Sonnet 5.5", "Haiku 5.5", "Opus 4", "Sonnet 4", "Fable 5.5", "Claude API", "Claude.ai"], category: agent}
+  - {name: Claude Code, aliases: ["claude-code", "Claude Code skills", "Claude Code hooks", "CLAUDE.md", "Claude Code Projects", "Claude Code desktop"], category: agent}
+  - {name: Claude Cowork, aliases: ["Cowork"], category: agent}
+  - {name: Claude Agent SDK, aliases: ["Agent SDK", "Claude Code SDK"], category: agent}
+  - {name: Claude Design, aliases: ["ClaudeDesign"], category: agent}
+  - {name: Codex, aliases: ["OpenAI Codex", "Codex CLI", "GPT-5 Codex"], category: agent}
+  - {name: ChatGPT, aliases: ["OpenAI", "GPT", "GPT-5", "GPT-5.5", "GPT 6", "GPT-6", "GPT-6 Astra", "GPT-6 Sol", "GPT-4o", "ChatGPT Pro", "ChatGPT Plus"], category: agent}
+  - {name: Gemini, aliases: ["Google Gemini", "Gemini 3", "Gemini 3.8", "Gemini 4", "Gemini 4 Argon", "Gemini 4 Carbon", "Gemini CLI", "Google AI Studio", "Gemini Flash"], category: agent}
+  - {name: Grok, aliases: ["xAI", "Grok 4", "Grok Bot", "SpaceXAI", "Grok Voice"], category: agent}
+  - {name: Cursor, aliases: ["Cursor IDE", "Cursor Agent"], category: agent}
+  - {name: Windsurf, aliases: ["Codeium Windsurf"], category: agent}
+  - {name: GitHub Copilot, aliases: ["Copilot", "Copilot Agent"], category: agent}
+  - {name: Aider, aliases: [], category: agent}
+  - {name: OpenCode, aliases: ["opencode.ai"], category: agent}
+  - {name: Cline, aliases: ["Roo Code", "Kilo Code"], category: agent}
+  - {name: Antigravity, aliases: ["Google Antigravity"], category: agent}
+  - {name: Perplexity, aliases: ["Perplexity Computer", "Perplexity Comet"], category: agent}
+  - {name: Manus, aliases: ["Manus AI"], category: agent}
+  - {name: OpenClaw, aliases: ["Clawdbot", "Moltbot", "Clawd"], category: agent}
+  - {name: Hermes Agent, aliases: ["Nous Hermes", "Hermes Agent"], category: agent}
+  - {name: DeepSeek, aliases: ["DeepSeek V4", "DeepSeek V4.1 Flash", "DeepInfer", "DeepSeek R2"], category: agent}
+  - {name: Qwen, aliases: ["Qwen3", "Qwen 3.8", "Qwen3.8", "Alibaba Qwen"], category: agent}
+  - {name: Kimi, aliases: ["Kimi K2", "Moonshot AI"], category: agent}
+  - {name: Mistral, aliases: ["Mistral Large", "Mistral Medium"], category: agent}
+  - {name: Llama, aliases: ["Meta Llama", "Llama 4", "llama.cpp"], category: agent}
+  - {name: GLM, aliases: ["Zhipu GLM", "GLM-5", "Z.ai"], category: agent}
+  # ---- automation ----
+  - {name: n8n, aliases: ["n8n.io", "n8n workflow"], category: automation}
+  - {name: Make, aliases: ["Make.com", "Integromat"], category: automation}
+  - {name: Zapier, aliases: ["Zapier Agents"], category: automation}
+  - {name: Activepieces, aliases: [], category: automation}
+  - {name: Pipedream, aliases: [], category: automation}
+  - {name: Lindy, aliases: ["Lindy AI"], category: automation}
+  - {name: ComfyUI, aliases: ["Comfy UI", "Comfy", "Comfy Cloud", "ComfyUI Partner Nodes"], category: automation}
+  - {name: Flowise, aliases: [], category: automation}
+  - {name: Dify, aliases: ["Dify.ai"], category: automation}
+  - {name: Langflow, aliases: [], category: automation}
+  - {name: Apify, aliases: ["Apify actors"], category: automation}
+  # ---- platform ----
+  - {name: fal, aliases: ["fal.ai", "fal ai", "fal MCP"], category: platform}
+  - {name: Replicate, aliases: ["replicate.com"], category: platform}
+  - {name: Hugging Face, aliases: ["HuggingFace", "HF", "Hugging Face Spaces"], category: platform}
+  - {name: OpenRouter, aliases: ["Open Router"], category: platform}
+  - {name: Together AI, aliases: ["together.ai"], category: platform}
+  - {name: Fireworks AI, aliases: ["Fireworks"], category: platform}
+  - {name: BytePlus, aliases: ["BytePlus ModelArk", "ModelArk", "Volcengine"], category: platform}
+  - {name: Vertex AI, aliases: ["Google Vertex", "Gemini API"], category: platform}
+  - {name: YouTube Studio, aliases: ["YouTube Analytics", "YouTube Partner Program", "YPP", "YouTube Data API"], category: platform}
+  - {name: vidIQ, aliases: ["VidIQ", "vidIQ AI"], category: platform}
+  - {name: TubeBuddy, aliases: [], category: platform}
+  - {name: Social Blade, aliases: ["SocialBlade"], category: platform}
+  - {name: Subscribr, aliases: ["Subscribr AI"], category: platform}
+  - {name: Pexels, aliases: ["Pexels API"], category: platform}
+  - {name: Pixabay, aliases: [], category: platform}
+  - {name: Storyblocks, aliases: ["Storyblocks API"], category: platform}
+  - {name: Artgrid, aliases: [], category: platform}
+  - {name: Envato Elements, aliases: ["Envato"], category: platform}
+  - {name: Pond5, aliases: [], category: platform}
+  - {name: Internet Archive, aliases: ["Archive.org", "archive.org"], category: platform}
+  - {name: Wikimedia Commons, aliases: ["Wikimedia", "Commons"], category: platform}
+  - {name: Shotstack, aliases: [], category: platform}
+  - {name: Creatomate, aliases: [], category: platform}
+  - {name: Mux, aliases: [], category: platform}
+  - {name: ScrapeCreators, aliases: ["Scrape Creators"], category: platform}
+  - {name: Ollama, aliases: [], category: platform}
+  - {name: LM Studio, aliases: ["LMStudio"], category: platform}
+  - {name: vLLM, aliases: [], category: platform}
+  # ---- library ----
+  - {name: FFmpeg, aliases: ["ffmpeg-full", "libass", "ffprobe"], category: library}
+  - {name: MCP, aliases: ["Model Context Protocol", "MCP server", "MCP servers"], category: library}
+  - {name: Agent Skills, aliases: ["SKILL.md", "Claude skills", "agent skill", "Skills"], category: library}
+  - {name: Playwright, aliases: [], category: library}
+  - {name: Puppeteer, aliases: [], category: library}
+  - {name: Three.js, aliases: ["three.js", "threejs"], category: library}
+  - {name: GSAP, aliases: ["GreenSock"], category: library}
+  - {name: D3, aliases: ["D3.js"], category: library}
+  - {name: p5.js, aliases: ["p5"], category: library}
+  - {name: PixiJS, aliases: ["Pixi.js"], category: library}
+  - {name: OpenCV, aliases: [], category: library}
+  - {name: MoviePy, aliases: [], category: library}
+  - {name: PyAV, aliases: [], category: library}
+  - {name: yt-dlp, aliases: ["youtube-dl"], category: library}
+  - {name: LangChain, aliases: ["LangGraph"], category: library}
+  - {name: CrewAI, aliases: [], category: library}
+  - {name: AutoGen, aliases: ["AG2"], category: library}
+  - {name: Pydantic AI, aliases: ["PydanticAI"], category: library}
+  - {name: Vercel AI SDK, aliases: ["AI SDK"], category: library}
+  - {name: LiteLLM, aliases: [], category: library}

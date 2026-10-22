@@ -1,0 +1,31 @@
+{
+  "total_count": 3,
+  "incomplete_results": false,
+  "items": [
+    {
+      "full_name": "fake-org/example-repo",
+      "html_url": "https://github.com/fake-org/example-repo",
+      "description": "An example repository for tests.",
+      "owner": {"login": "fake-org"},
+      "created_at": "2026-10-01T08:00:00Z",
+      "stargazers_count": 456,
+      "homepage": "https://example.org/docs",
+      "language": "Python",
+      "topics": ["video", "example"],
+      "license": {"spdx_id": "MIT"}
+    },
+    {
+      "full_name": "fake-org/quiet-repo",
+      "html_url": "https://github.com/fake-org/quiet-repo",
+      "description": null,
+      "owner": {"login": "fake-org"},
+      "created_at": "2026-10-02T08:00:00Z",
+      "stargazers_count": 31,
+      "homepage": "",
+      "language": null,
+      "topics": [],
+      "license": null
+    },
+    {"full_name": null, "html_url": "https://github.com/nobody/nothing"}
+  ]
+}

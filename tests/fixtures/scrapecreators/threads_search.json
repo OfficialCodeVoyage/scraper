@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "credits_remaining": 1000,
+  "credits_charged": 1,
+  "posts": [
+    {
+      "id": "1000000000000000001_2000000001",
+      "pk": "1000000000000000001",
+      "caption": {"text": "An example thread post.\nWith a second line."},
+      "code": "EXAMPLEcode1",
+      "like_count": 540,
+      "taken_at": 1790000000,
+      "user": {"username": "fake_threads_user", "pk": "2000000001"},
+      "text_post_app_info": {"direct_reply_count": 21, "repost_count": 4, "quote_count": 2},
+      "url": "https://www.threads.com/@fake_threads_user/post/EXAMPLEcode1"
+    },
+    {
+      "id": "1000000000000000002_2000000002",
+      "caption": {"text": "A post without a url field."},
+      "code": "EXAMPLEcode2",
+      "like_count": 12,
+      "taken_at": 1790003600,
+      "user": {"username": "fake_threads_user_two"}
+    },
+    {"caption": {"text": "A post without a code is dropped."}, "like_count": 1}
+  ]
+}

@@ -1,0 +1,22 @@
+# Environments and secrets
+.venv/
+venv/
+.env
+.env.*
+
+# Caches and builds
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+build/
+dist/
+*.egg-info/
+
+# Local data: the SQLite store, briefs, private profiles
+/data/
+*.db
+*.db-journal
+/profiles/
+.DS_Store

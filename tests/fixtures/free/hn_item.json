@@ -1,0 +1,10 @@
+{
+  "id": 9000001,
+  "type": "story",
+  "title": "Example Corp files for bankruptcy",
+  "children": [
+    {"id": 9100001, "author": "fake_commenter_one", "text": "<p>First <i>comment</i> &amp; more</p>", "created_at": "2026-09-21T15:00:00.000Z", "children": []},
+    {"id": 9100002, "author": null, "text": null, "children": []},
+    {"id": 9100003, "author": "fake_commenter_two", "text": "<p>Second comment</p>", "created_at": "2026-09-21T16:00:00.000Z", "children": []}
+  ]
+}

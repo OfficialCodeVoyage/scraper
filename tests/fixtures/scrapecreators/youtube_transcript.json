@@ -1,0 +1,14 @@
+{
+  "success": true,
+  "credits_remaining": 1000,
+  "credits_charged": 1,
+  "videoId": "vid00000001",
+  "type": "video",
+  "url": "https://www.youtube.com/watch?v=vid00000001",
+  "transcript": [
+    {"text": "welcome to the example video", "startMs": "160", "endMs": "1920", "startTimeText": "0:00"},
+    {"text": "today we look at a made-up company", "startMs": "1920", "endMs": "4200", "startTimeText": "0:01"}
+  ],
+  "transcript_only_text": "welcome to the example video today we look at a made-up company",
+  "language": "English"
+}

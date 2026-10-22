@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "credits_remaining": 1000,
+  "credits_charged": 1,
+  "videos": [
+    {
+      "type": "video",
+      "id": "vid00000001",
+      "url": "https://www.youtube.com/watch?v=vid00000001",
+      "title": "The Rise and Fall of Example Corp",
+      "description": "An example description of an example video.",
+      "channel": {"id": "UCexamplechannel000000000", "title": "Example Channel", "handle": "@examplechannel"},
+      "viewCountText": "120,000 views",
+      "viewCountInt": 120000,
+      "commentCountInt": 850,
+      "likeCountInt": 9100,
+      "publishedTimeText": "3 days ago",
+      "publishedTime": "2026-10-01T10:00:00.000Z",
+      "lengthSeconds": 754
+    },
+    {
+      "type": "short",
+      "id": "short0000001",
+      "url": "https://www.youtube.com/watch?v=short0000001",
+      "title": "A short is not a video here",
+      "channel": {"id": "UCexamplechannel000000000", "title": "Example Channel", "handle": "@examplechannel"},
+      "viewCountInt": 5000,
+      "publishedTime": "2026-10-01T10:00:00.000Z"
+    },
+    {"type": "video", "title": "A video without an id is dropped"}
+  ]
+}

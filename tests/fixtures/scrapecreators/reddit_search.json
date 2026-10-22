@@ -1,0 +1,40 @@
+{
+  "success": true,
+  "credits_remaining": 1000,
+  "credits_charged": 1,
+  "posts": [
+    {
+      "id": "abc123",
+      "author": "fake_user_one",
+      "subreddit": "ExampleSub",
+      "title": "Example post about a bank run",
+      "selftext": "Body of the example post.",
+      "upvote_ratio": null,
+      "ups": 1500,
+      "score": 1500,
+      "created_utc": 1790000000,
+      "num_comments": 320,
+      "url": "https://example.com/story",
+      "permalink": "/r/ExampleSub/comments/abc123/example_post/",
+      "domain": "example.com",
+      "link_flair_text": "News"
+    },
+    {
+      "id": "def456",
+      "author": "fake_user_two",
+      "subreddit": "ExampleSub",
+      "title": "A self post with no permalink field",
+      "selftext": "",
+      "upvote_ratio": null,
+      "score": 40,
+      "created_utc": 1790003600,
+      "num_comments": 3,
+      "url": "https://www.reddit.com/r/ExampleSub/comments/def456/a_self_post/"
+    },
+    {
+      "id": "",
+      "title": "A post without an id is dropped"
+    }
+  ],
+  "after": "t3_def456"
+}

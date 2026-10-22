@@ -1,0 +1,22 @@
+{
+  "success": true,
+  "credits_remaining": 1000,
+  "credits_charged": 1,
+  "posts": [
+    {
+      "id": "ghi789",
+      "author": "fake_user_three",
+      "subreddit": "ExampleSub",
+      "title": "A split-vote post",
+      "selftext": "People disagree about this.",
+      "upvote_ratio": 0.62,
+      "score": 900,
+      "created_utc": 1790000000,
+      "num_comments": 410,
+      "url": "https://www.reddit.com/r/ExampleSub/comments/ghi789/a_split_vote_post/",
+      "permalink": "/r/ExampleSub/comments/ghi789/a_split_vote_post/",
+      "link_flair_text": null
+    }
+  ],
+  "after": "t3_ghi789"
+}

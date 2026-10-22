@@ -1,0 +1,111 @@
+# An example scout profile: a watch list for someone building a faceless YouTube channel with AI tools.
+# Copy it to ~/.config/scout/profiles/default.yaml (or <name>.yaml and run `scout daily --profile <name>`).
+#
+# Paid calls are ScrapeCreators credits, 1 per call (an empty answer too): every subreddit, channel, search,
+# typeahead seed and account below is one call a day. The lenses' credit_budget plus the comment calls must fit the
+# global daily_credit_cap in ~/.config/scout/config.yaml (default 100). HN, GitHub and Bluesky are free.
+# A wrong subreddit or handle answers empty and is still charged: check a new one with
+# `scout user-posts reddit NAME --dry-run`, then once for real, before adding it.
+# Expected here: video_ideas 12 calls, dev_intel 16, comments up to 25, so at most 53 credits a day.
+
+niche: faceless documentary              # fills {niche} and {a_niche} in the prompts
+brand_voice: |                           # fills {brand_voice}; optional
+  Calm, specific and sourced. Explains how things happened with real numbers; never hype, never advice.
+
+providers:
+  reddit: scrapecreators
+comments:
+  top_posts: 20        # Reddit posts whose comments are read (1 credit each)
+  youtube_videos: 5    # YouTube outliers whose comments are read (1 credit each)
+  hn_stories: 10       # free
+summary:
+  model: claude-sonnet-5-5
+  max_items: 50
+  timeout_seconds: 600
+wikipedia_entities: 10
+
+# Tools the dev-intel tab already knows: the packaged list plus these. A tool a post names that is on neither is
+# marked NEW in the brief.
+known_tools:
+  include_default: true
+  tools: []
+  # - {name: MyTool, aliases: ["My Tool"], category: editor}
+
+lenses:
+  video_ideas:
+    label: Video ideas
+    credit_budget: 25
+    # prompt: prompts/video_ideas.yaml   # optional: a file next to this profile; default is scout's own
+    watches:
+      - a company, product or public figure whose story people are rediscovering
+      - a question people keep asking in the comments that no good video answers yet
+    reddit:
+      subreddits:
+        - {name: todayilearned, sort: top, timeframe: day}
+        - {name: AskHistorians, sort: top, timeframe: day}
+        - {name: business, sort: top, timeframe: day}
+        - {name: dataisbeautiful, sort: top, timeframe: day}
+      searches:
+        - {q: what happened to, timeframe: week}
+    youtube:
+      channels: []                        # e.g. {handle: "@SomeChannel", sort: latest}: 30 videos, for outliers
+      searches:
+        - {q: documentary explained, upload_date: this_week}
+        - {q: the rise and fall of, upload_date: this_week}
+      typeahead:                          # * is a wildcard: what people type; lasting demand, not news
+        - "what happened to *"
+        - "why did * fail"
+        - "the downfall of *"
+    x:
+      searches: [documentary, what happened to]
+      accounts: []
+    threads:
+      searches: []
+    hn:
+      queries: [history of, collapse, shutting down]
+      min_points: 20
+    github:
+      queries: []
+    bluesky:
+      queries: [documentary, history thread]
+
+  dev_intel:
+    label: Dev intel
+    credit_budget: 35
+    watches:
+      - someone asks how to make a faceless video with a specific tool, and replies name tools or settings
+      - a new image, video, voice or music model, or a price change of one
+      - YouTube monetization or AI-content policy changes
+    reddit:
+      subreddits:
+        - {name: NewTubers, sort: top, timeframe: day}
+        - {name: PartneredYoutube, sort: top, timeframe: day}
+        - {name: aitubers, sort: top, timeframe: day}
+        - {name: StableDiffusion, sort: top, timeframe: day}
+        - {name: ElevenLabs, sort: top, timeframe: day}
+      searches:
+        - {q: faceless youtube, timeframe: week}
+        - {q: AI video workflow, timeframe: week}
+    youtube:
+      channels: []
+      searches:
+        - {q: faceless youtube channel ai, upload_date: this_week}
+        - {q: ai video workflow, upload_date: this_week}
+        - {q: youtube demonetized ai, upload_date: this_week}
+        - {q: new ai video model, upload_date: this_week}
+      typeahead: []
+    x:
+      # scout adds the month and year to each search; keep them to 1-4 words.
+      searches: [faceless YouTube, AI video workflow, text to speech model, YouTube AI policy]
+      accounts: []                        # small accounts only: a big one returns its year-old popular tweets
+    threads:
+      searches: [faceless YouTube]
+    hn:
+      # Titles only; avoid short acronyms (Algolia is typo-tolerant).
+      queries: [text-to-speech, video generation, image model, ffmpeg]
+      min_points: 20
+    github:
+      queries: [faceless video, video generation, text to speech, ffmpeg agent, video editing agent]
+      min_stars: 30
+    bluesky:
+      queries: [faceless YouTube, video generation model, AI slop YouTube]

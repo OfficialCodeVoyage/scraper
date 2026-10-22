@@ -1,0 +1,24 @@
+{
+  "feed": [
+    {
+      "post": {
+        "uri": "at://did:plc:fakefakefakefake/app.bsky.feed.post/3kexample002",
+        "author": {"handle": "fake-user.example.test"},
+        "record": {"text": "An original post by the account", "createdAt": "2026-10-02T12:00:00.000Z"},
+        "likeCount": 9,
+        "replyCount": 1,
+        "repostCount": 0,
+        "quoteCount": 0
+      }
+    },
+    {
+      "post": {
+        "uri": "at://did:plc:otherotherother/app.bsky.feed.post/3kexample003",
+        "author": {"handle": "someone-else.example.test"},
+        "record": {"text": "A post the account only reposted", "createdAt": "2026-10-02T13:00:00.000Z"},
+        "likeCount": 500
+      },
+      "reason": {"$type": "app.bsky.feed.defs#reasonRepost"}
+    }
+  ]
+}

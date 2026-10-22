@@ -1,0 +1,2432 @@
+[
+  {
+    "path": "/v1/credit-balance",
+    "method": "GET",
+    "platform": "account",
+    "params": [],
+    "credits": 0,
+    "description": "The account's credits left. Free."
+  },
+  {
+    "path": "/v1/amazon/shop",
+    "method": "GET",
+    "platform": "amazon",
+    "group": "Amazon Shop",
+    "params": [
+      {"name": "url", "required": true, "description": "URL to Amazon Shop page."},
+      {"name": "pageToken", "required": false, "description": "Opaque page token returned by a previous response for the same shop URL."}
+    ],
+    "credits": 1,
+    "description": "Scrapes a creator's Amazon Shop page by URL, returning their storefront profile and product collections."
+  },
+  {
+    "path": "/v1/apple-music/album",
+    "method": "GET",
+    "platform": "apple-music",
+    "group": "Apple Music",
+    "params": [
+      {"name": "id", "required": false, "description": "Apple Music album id. If you'd prefer to use the URL instead, you can use the url parameter instead."},
+      {"name": "url", "required": false, "description": "Apple Music album URL. If you'd prefer to use the id instead, you can use the id parameter instead."}
+    ],
+    "credits": 1,
+    "description": "Retrieves public Apple Music album details, including title, artist, artwork, release info, tracks, and more by the artist."
+  },
+  {
+    "path": "/v1/apple-music/artist",
+    "method": "GET",
+    "platform": "apple-music",
+    "group": "Apple Music",
+    "params": [
+      {"name": "id", "required": false, "description": "Apple Music artist id. If you'd prefer to use the URL instead, you can use the url parameter instead."},
+      {"name": "url", "required": false, "description": "Apple Music artist URL. If you'd prefer to use the id instead, you can use the id parameter instead."}
+    ],
+    "credits": 1,
+    "description": "Public Apple Music artist details: top songs, albums, music videos, playlists."
+  },
+  {
+    "path": "/v1/apple-music/search",
+    "method": "GET",
+    "platform": "apple-music",
+    "group": "Apple Music",
+    "params": [
+      {"name": "query", "required": true, "description": "Search query."},
+      {"name": "type", "required": false, "description": "Result type to return. Use all, song, album, artist, playlist, station, music_video, or radio_episode."}
+    ],
+    "credits": 1,
+    "description": "Searches Apple Music and returns public result sections for artists, albums, songs, playlists, stations, and music videos."
+  },
+  {
+    "path": "/v1/apple-music/track",
+    "method": "GET",
+    "platform": "apple-music",
+    "group": "Apple Music",
+    "params": [
+      {"name": "id", "required": false, "description": "Apple Music song id. Some songs have standalone song URLs; for album tracks, use the url parameter."},
+      {"name": "url", "required": false, "description": "Apple Music song URL or album track URL."}
+    ],
+    "credits": 1,
+    "description": "Retrieves public Apple Music song details by id or URL."
+  },
+  {
+    "path": "/v1/bluesky/post",
+    "method": "GET",
+    "platform": "bluesky",
+    "group": "Bluesky",
+    "params": [
+      {"name": "url", "required": true, "description": "Bluesky post URL."}
+    ],
+    "credits": 1,
+    "description": "Fetches a single Bluesky post by URL."
+  },
+  {
+    "path": "/v1/bluesky/profile",
+    "method": "GET",
+    "platform": "bluesky",
+    "group": "Bluesky",
+    "params": [
+      {"name": "handle", "required": true, "description": "Bluesky handle."}
+    ],
+    "credits": 1,
+    "description": "Retrieves a Bluesky user's public profile."
+  },
+  {
+    "path": "/v1/bluesky/user/posts",
+    "method": "GET",
+    "platform": "bluesky",
+    "group": "Bluesky",
+    "params": [
+      {"name": "handle", "required": false, "description": "Bluesky handle."},
+      {"name": "user_id", "required": false, "description": "Bluesky 'did'. (For some reason Bluesky calls their user ids, 'did' for whatever reason)."}
+    ],
+    "credits": 1,
+    "description": "Fetches a paginated feed of posts from a Bluesky user."
+  },
+  {
+    "path": "/v1/cosmos/cluster",
+    "method": "GET",
+    "platform": "cosmos",
+    "group": "Cosmos",
+    "params": [
+      {"name": "url", "required": true, "description": "Public Cosmos collection URL."}
+    ],
+    "credits": 1,
+    "description": "Get a public Cosmos collection with its owner, description, cover, counts, and public subcollections."
+  },
+  {
+    "path": "/v1/cosmos/cluster/posts",
+    "method": "GET",
+    "platform": "cosmos",
+    "group": "Cosmos",
+    "params": [
+      {"name": "url", "required": true, "description": "Public Cosmos collection URL."},
+      {"name": "cursor", "required": false, "description": "Pass the previous response cursor unchanged. Stop when it is null; sending the literal string \"null\" returns an empty terminal page without fetching or charging."}
+    ],
+    "credits": 1,
+    "cost_note": "1 credit per successful request, empty results included; cursor=null is free.",
+    "description": "Get public posts saved to a Cosmos collection."
+  },
+  {
+    "path": "/v1/cosmos/post",
+    "method": "GET",
+    "platform": "cosmos",
+    "group": "Cosmos",
+    "params": [
+      {"name": "url", "required": true, "description": "Public Cosmos post URL."}
+    ],
+    "credits": 1,
+    "description": "Get a public Cosmos post with media URLs, captions, source links, and save count."
+  },
+  {
+    "path": "/v1/cosmos/profile",
+    "method": "GET",
+    "platform": "cosmos",
+    "group": "Cosmos",
+    "params": [
+      {"name": "handle", "required": true, "description": "Cosmos username without a profile URL."}
+    ],
+    "credits": 1,
+    "description": "Public Cosmos profile with bio, links and follower counts."
+  },
+  {
+    "path": "/v1/cosmos/search",
+    "method": "GET",
+    "platform": "cosmos",
+    "group": "Cosmos",
+    "params": [
+      {"name": "query", "required": true, "description": "Search text."},
+      {"name": "cursor", "required": false, "description": "Pass the previous response cursor unchanged. Stop when it is null; sending the literal string \"null\" returns an empty terminal page without fetching or charging."}
+    ],
+    "credits": 1,
+    "cost_note": "1 credit per successful request, empty results included; cursor=null is free.",
+    "description": "Search public Cosmos posts by keyword. Cosmos may return related posts even when there is no exact keyword match."
+  },
+  {
+    "path": "/v1/cosmos/user/clusters",
+    "method": "GET",
+    "platform": "cosmos",
+    "group": "Cosmos",
+    "params": [
+      {"name": "handle", "required": true, "description": "Cosmos username without a profile URL."},
+      {"name": "cursor", "required": false, "description": "Pass the previous response cursor unchanged. Stop when it is null; sending the literal string \"null\" returns an empty terminal page without fetching or charging."}
+    ],
+    "credits": 1,
+    "cost_note": "1 credit per successful request, empty results included; cursor=null is free.",
+    "description": "Public collections owned by a Cosmos user."
+  },
+  {
+    "path": "/v1/cosmos/user/posts",
+    "method": "GET",
+    "platform": "cosmos",
+    "group": "Cosmos",
+    "params": [
+      {"name": "handle", "required": true, "description": "Cosmos username without a profile URL."},
+      {"name": "cursor", "required": false, "description": "Pass the previous response cursor unchanged. Stop when it is null; sending the literal string \"null\" returns an empty terminal page without fetching or charging."}
+    ],
+    "credits": 1,
+    "cost_note": "1 credit per successful request, empty results included; cursor=null is free.",
+    "description": "Public posts saved to a Cosmos user profile."
+  },
+  {
+    "path": "/v1/find-social-profiles",
+    "method": "GET",
+    "platform": "creator-tools",
+    "group": "Creator Tools",
+    "params": [
+      {"name": "platform", "required": true, "description": "Source social platform. One of: instagram, tiktok, youtube, x, twitter, facebook."},
+      {"name": "handle", "required": true, "description": "Creator handle without a profile URL. A leading @ is optional."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 10,
+    "cost_note": "A successful live lookup costs 10 credits.",
+    "description": "Finds a creator's other public social profiles from a platform and handle (link-in-bio enrichment)."
+  },
+  {
+    "path": "/v1/facebook/adLibrary/ad",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook Ad Library",
+    "params": [
+      {"name": "allow_long_transcription", "required": false, "description": "Paid opt-in, literal 'true' only. Allows AI transcription of videos over 120 seconds at 10 credits per started minute (all successful AI transcriptions in this mode, short ones too). Leave unset to stay at the flat price."},
+      {"name": "get_transcript", "required": false, "description": "Set to 'true' to also transcribe the video. Up to 120 s is included in the base price; longer needs allow_long_transcription (paid, 10 credits per started minute, added to the base price)."},
+      {"name": "id", "required": false, "description": "Facebook Ad Id."},
+      {"name": "url", "required": false, "description": "Facebook Ad URL."},
+      {"name": "trim", "required": false, "description": "Set to true for a trimmed down version of the response."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "paid_params": ["allow_long_transcription"],
+    "cost_note": "Base price per request; get_transcript=true up to 120 s adds nothing; allow_long_transcription=true adds 10 credits per started minute on top.",
+    "description": "Details of one Meta Ad Library ad by id or URL."
+  },
+  {
+    "path": "/v1/facebook/adLibrary/ad/transcript",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook Ad Library",
+    "params": [
+      {"name": "allow_long_transcription", "required": false, "description": "Paid opt-in, literal 'true' only. Allows AI transcription of videos over 120 seconds at 10 credits per started minute (all successful AI transcriptions in this mode, short ones too). Leave unset to stay at the flat price."},
+      {"name": "id", "required": false, "description": "Facebook Ad Id."},
+      {"name": "url", "required": false, "description": "Facebook Ad URL."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "paid_params": ["allow_long_transcription"],
+    "cost_note": "1 credit when a transcript is returned; no video or transcript costs 0; allow_long_transcription=true is 10 credits per started minute.",
+    "description": "Retrieves a transcript for a Facebook Ad Library video ad by ID or URL."
+  },
+  {
+    "path": "/v1/facebook/adLibrary/company/ads",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook Ad Library",
+    "params": [
+      {"name": "pageId", "required": false, "description": "The companies ad library page id. You can get this with my Search For Companies Endpoint."},
+      {"name": "companyName", "required": false, "description": "The name of the company. Can either use this or pageId."},
+      {"name": "country", "required": false, "description": "This can only be one country. It has to be the 2 letter code for the country."},
+      {"name": "status", "required": false, "description": "Status of the ad. Defaults to ACTIVE. One of: ALL, ACTIVE, INACTIVE."},
+      {"name": "media_type", "required": false, "description": "Media type of the ad. Defaults to ALL. One of: ALL, IMAGE, VIDEO, MEME, IMAGE_AND_MEME, NONE."},
+      {"name": "language", "required": false, "description": "Language to filter ads on. Needs to be 2 letter language code, ie EN, ES, FR, etc."},
+      {"name": "sort_by", "required": false, "description": "Sort by impressions (high to low), or Most Recent (relevancy_monthly_grouped). One of: total_impressions, relevancy_monthly_grouped."},
+      {"name": "start_date", "required": false, "description": "Start date to search for. Format: YYYY-MM-DD."},
+      {"name": "end_date", "required": false, "description": "End date to search for. Format: YYYY-MM-DD."},
+      {"name": "cursor", "required": false, "description": "Cursor to paginate through results."},
+      {"name": "trim", "required": false, "description": "Set to true for a trimmed down version of the response."}
+    ],
+    "credits": 1,
+    "description": "Fetches all ads currently running for a specific company from the Meta Ad Library."
+  },
+  {
+    "path": "/v1/facebook/adLibrary/search/ads",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook Ad Library",
+    "params": [
+      {"name": "query", "required": true, "description": "Keyword to search for."},
+      {"name": "sort_by", "required": false, "description": "Sort by impressions (high to low), or Most Recent (relevancy_monthly_grouped). One of: total_impressions, relevancy_monthly_grouped."},
+      {"name": "search_type", "required": false, "description": "If you want to search by exact phrase or not. One of: keyword_unordered, keyword_exact_phrase."},
+      {"name": "ad_type", "required": false, "description": "Search for all ads or only political and issue ads. One of: all, political_and_issue_ads."},
+      {"name": "country", "required": false, "description": "This can only be one country. It has to be the 2 letter code for the country."},
+      {"name": "language", "required": false, "description": "Language to filter ads on. Needs to be a 2 letter language code, such as EN, ES, or FR."},
+      {"name": "status", "required": false, "description": "Status of the ad. Defaults to ACTIVE. One of: ALL, ACTIVE, INACTIVE."},
+      {"name": "media_type", "required": false, "description": "Media type of the ad. Defaults to ALL. One of: ALL, IMAGE, VIDEO, MEME, IMAGE_AND_MEME, NONE."},
+      {"name": "start_date", "required": false, "description": "Impressions start date. Needs to be in YYYY-MM-DD format."},
+      {"name": "end_date", "required": false, "description": "Impressions end date. Needs to be in YYYY-MM-DD format."},
+      {"name": "cursor", "required": false, "description": "Cursor to paginate through results."},
+      {"name": "trim", "required": false, "description": "Set to true for a trimmed down version of the response."}
+    ],
+    "credits": 1,
+    "description": "Searches the Meta Ad Library by keyword and returns matching ads."
+  },
+  {
+    "path": "/v1/facebook/adLibrary/search/companies",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook Ad Library",
+    "params": [
+      {"name": "query", "required": true, "description": "Keyword to search for."}
+    ],
+    "credits": 1,
+    "description": "Searches for companies by name in the Meta Ad Library and returns their page IDs for use with other ad library endpoints."
+  },
+  {
+    "path": "/v1/facebook/event/details",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook Events",
+    "params": [
+      {"name": "id", "required": false, "description": "The ID of the event."},
+      {"name": "url", "required": false, "description": "The URL of the event."}
+    ],
+    "credits": 1,
+    "description": "Get a specific event by its URL or id."
+  },
+  {
+    "path": "/v1/facebook/events",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook Events",
+    "params": [
+      {"name": "url", "required": true, "description": "The URL of the city's Facebook Events page."},
+      {"name": "time", "required": false, "description": "The time frame to search for. Defaults to all time. One of: today, this_week, next_week."},
+      {"name": "cursor", "required": false, "description": "The cursor to paginate to the next page."}
+    ],
+    "credits": 1,
+    "description": "Events of a city on Facebook."
+  },
+  {
+    "path": "/v1/facebook/events/search",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook Events",
+    "params": [
+      {"name": "query", "required": true, "description": "The query to search for."},
+      {"name": "cursor", "required": false, "description": "The cursor to paginate to the next page."}
+    ],
+    "credits": 1,
+    "description": "Search Facebook events by name."
+  },
+  {
+    "path": "/v1/facebook/group",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook",
+    "params": [
+      {"name": "url", "required": false, "description": "The Facebook group URL. Group sub-page URLs such as /about work too."},
+      {"name": "group_id", "required": false, "description": "The numeric Facebook group ID. Provide this instead of url if you already have it."}
+    ],
+    "credits": 1,
+    "description": "Fetches the public information shown on a Facebook group's About page."
+  },
+  {
+    "path": "/v1/facebook/group/posts",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook",
+    "params": [
+      {"name": "url", "required": false, "description": "The URL of the group."},
+      {"name": "group_id", "required": false, "description": "The ID of the group."},
+      {"name": "sort_by", "required": false, "description": "How to sort the posts. Defaults to CHRONOLOGICAL. One of: TOP_POSTS, RECENT_ACTIVITY, CHRONOLOGICAL, CHRONOLOGICAL_LISTINGS."},
+      {"name": "cursor", "required": false, "description": "The cursor to paginate to the next page."}
+    ],
+    "credits": 1,
+    "description": "Fetches posts from a public Facebook group, limited to 3 posts per page due to API limitations."
+  },
+  {
+    "path": "/v1/facebook/marketplace/item",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook Marketplace",
+    "params": [
+      {"name": "id", "required": false, "description": "Facebook Marketplace item id."},
+      {"name": "url", "required": false, "description": "Facebook Marketplace item URL."}
+    ],
+    "credits": 1,
+    "description": "Fetches details for a Facebook Marketplace item by item id or Marketplace item URL."
+  },
+  {
+    "path": "/v1/facebook/marketplace/location/search",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook Marketplace",
+    "params": [
+      {"name": "query", "required": true, "description": "Location search query."}
+    ],
+    "credits": 1,
+    "description": "Searches Facebook Marketplace locations/cities and returns coordinates you can use with the Marketplace Search endpoint."
+  },
+  {
+    "path": "/v1/facebook/marketplace/search",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook Marketplace",
+    "params": [
+      {"name": "query", "required": true, "description": "Search keyword."},
+      {"name": "category_id", "required": false, "description": "Numeric Facebook Marketplace category ID. Listing results include this value as category_id."},
+      {"name": "lat", "required": true, "description": "Latitude for the search location."},
+      {"name": "lng", "required": true, "description": "Longitude for the search location."},
+      {"name": "radius_km", "required": false, "description": "Search radius in kilometers."},
+      {"name": "min_price", "required": false, "description": "Minimum listing price."},
+      {"name": "max_price", "required": false, "description": "Maximum listing price."},
+      {"name": "sort_by", "required": false, "description": "Facebook Marketplace sort option. creation_time_descend usually orders the first pages newest first, but Facebook can insert newer listings on later cursor pages. One of: suggested, distance_ascend, creation_time_descend, price_ascend, price_descend."},
+      {"name": "delivery_method", "required": false, "description": "Delivery filter. One of: all, local_pickup, shipping."},
+      {"name": "condition", "required": false, "description": "Condition filter. One of: new, used_like_new, used_good, used_fair."},
+      {"name": "date_listed", "required": false, "description": "Facebook Marketplace date filter. Uses the same calendar-day buckets as the UI, so last_24_hours can include listings from the prior calendar day. One of: all, 1, 7, 30, last_24_hours, last_7_days, last_30_days."},
+      {"name": "availability", "required": false, "description": "Availability filter. One of: available, sold, all."},
+      {"name": "cursor", "required": false, "description": "Opaque pagination cursor returned from the previous response."}
+    ],
+    "credits": 1,
+    "description": "Searches Facebook Marketplace listings by keyword and lat/lng."
+  },
+  {
+    "path": "/v1/facebook/post",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook",
+    "params": [
+      {"name": "allow_long_transcription", "required": false, "description": "Paid opt-in, literal 'true' only. Allows AI transcription of videos over 120 seconds at 10 credits per started minute (all successful AI transcriptions in this mode, short ones too). Leave unset to stay at the flat price."},
+      {"name": "get_transcript", "required": false, "description": "Set to 'true' to also transcribe the video. Up to 120 s is included in the base price; longer needs allow_long_transcription (paid, 10 credits per started minute, added to the base price)."},
+      {"name": "url", "required": true, "description": "The URL of the post to get."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "paid_params": ["allow_long_transcription"],
+    "cost_note": "Base price per request; get_transcript=true up to 120 s adds nothing; allow_long_transcription=true adds 10 credits per started minute on top.",
+    "description": "A public Facebook post or reel by URL: reactions, comments, shares, views."
+  },
+  {
+    "path": "/v1/facebook/post/comment/replies",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook",
+    "params": [
+      {"name": "feedback_id", "required": true, "description": "The *feedback_id* of the comment. Be careful, this is not the comment id."},
+      {"name": "expansion_token", "required": true, "description": "The expansion_token of the comment. You can get the expansion_token from the /v1/facebook/post/comments endpoint."},
+      {"name": "cursor", "required": false, "description": "The cursor to paginate to the next page."}
+    ],
+    "credits": 1,
+    "description": "Get the replies to a comment with cursor-based pagination."
+  },
+  {
+    "path": "/v1/facebook/post/comments",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook",
+    "params": [
+      {"name": "url", "required": false, "description": "Facebook post URL (or reel URL)."},
+      {"name": "feedback_id", "required": false, "description": "Using feedback_id (instead of url) will *really* speed up the request."},
+      {"name": "cursor", "required": false, "description": "Cursor to get more comments. Get 'cursor' from previous response."}
+    ],
+    "credits": 1,
+    "description": "Fetches comments from a Facebook post or reel with cursor-based pagination."
+  },
+  {
+    "path": "/v1/facebook/post/transcript",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook",
+    "params": [
+      {"name": "allow_long_transcription", "required": false, "description": "Paid opt-in, literal 'true' only. Allows AI transcription of videos over 120 seconds at 10 credits per started minute (all successful AI transcriptions in this mode, short ones too). Leave unset to stay at the flat price."},
+      {"name": "url", "required": true, "description": "Facebook post URL."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "paid_params": ["allow_long_transcription"],
+    "cost_note": "1 credit when a transcript is returned; none costs 0; allow_long_transcription=true is 10 credits per started minute.",
+    "description": "Transcript of a Facebook video post or reel."
+  },
+  {
+    "path": "/v1/facebook/profile",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook",
+    "params": [
+      {"name": "url", "required": true, "description": "Facebook profile URL."},
+      {"name": "get_business_hours", "required": false, "description": "Get the business's hours."},
+      {"name": "include_gated_profile", "required": false, "description": "When true, returns limited public fields for gated or age-restricted profiles."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "description": "Retrieves public Facebook page details."
+  },
+  {
+    "path": "/v1/facebook/profile/events",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook",
+    "params": [
+      {"name": "url", "required": true, "description": "The URL of the public Facebook page."},
+      {"name": "cursor", "required": false, "description": "The cursor to paginate to get more events."}
+    ],
+    "credits": 1,
+    "description": "Get the events of a public Facebook page."
+  },
+  {
+    "path": "/v1/facebook/profile/photos",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook",
+    "params": [
+      {"name": "url", "required": true, "description": "Facebook page URL."},
+      {"name": "next_page_id", "required": false, "description": "To paginate through to the next page."},
+      {"name": "cursor", "required": false, "description": "To paginate through to the next page."}
+    ],
+    "credits": 1,
+    "description": "Fetches photos from a public Facebook page with pagination support."
+  },
+  {
+    "path": "/v1/facebook/profile/posts",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook",
+    "params": [
+      {"name": "url", "required": false, "description": "Facebook profile URL."},
+      {"name": "pageId", "required": false, "description": "Facebook profile page id."},
+      {"name": "cursor", "required": false, "description": "To paginate through the posts."}
+    ],
+    "credits": 1,
+    "description": "Returns publicly visible Facebook profile posts, limited to 3 posts per page due to API limitations."
+  },
+  {
+    "path": "/v1/facebook/profile/reels",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook",
+    "params": [
+      {"name": "url", "required": true, "description": "Facebook page URL."},
+      {"name": "next_page_id", "required": false, "description": "To paginate through to the next page."},
+      {"name": "cursor", "required": false, "description": "To paginate through to the next page."}
+    ],
+    "credits": 1,
+    "description": "Fetches up to 10 reels per request from a public Facebook page."
+  },
+  {
+    "path": "/v1/facebook/search/videos",
+    "method": "GET",
+    "platform": "facebook",
+    "group": "Facebook",
+    "params": [
+      {"name": "query", "required": true, "description": "The keyword or phrase to search for."},
+      {"name": "cursor", "required": false, "description": "The opaque cursor returned by the previous response."}
+    ],
+    "credits": 1,
+    "cost_note": "Each successful page costs 1 credit, searches with no matches included.",
+    "description": "Searches Facebook's native public video search without a logged-in account and returns matching videos and Reels."
+  },
+  {
+    "path": "/v1/github/repository",
+    "method": "GET",
+    "platform": "github",
+    "group": "GitHub",
+    "params": [
+      {"name": "url", "required": true, "description": "GitHub repository URL."}
+    ],
+    "credits": 1,
+    "description": "Retrieves public metadata for one GitHub repository."
+  },
+  {
+    "path": "/v1/github/trending/developers",
+    "method": "GET",
+    "platform": "github",
+    "group": "GitHub",
+    "params": [
+      {"name": "language", "required": false, "description": "Optional trending coding language, e.g. javascript, python, or go."},
+      {"name": "since", "required": false, "description": "Trending range: daily, weekly, or monthly. Defaults to daily. One of: daily, weekly, monthly."}
+    ],
+    "credits": 1,
+    "description": "Scrapes GitHub's public Trending developers page."
+  },
+  {
+    "path": "/v1/github/trending/repositories",
+    "method": "GET",
+    "platform": "github",
+    "group": "GitHub",
+    "params": [
+      {"name": "language", "required": false, "description": "Optional coding language, e.g. javascript, python, or go."},
+      {"name": "since", "required": false, "description": "Trending range: daily, weekly, or monthly. Defaults to daily. One of: daily, weekly, monthly."},
+      {"name": "spoken_language_code", "required": false, "description": "Optional spoken language code filter, e.g. en."}
+    ],
+    "credits": 1,
+    "description": "Scrapes GitHub's public Trending repositories page."
+  },
+  {
+    "path": "/v1/github/user",
+    "method": "GET",
+    "platform": "github",
+    "group": "GitHub",
+    "params": [
+      {"name": "handle", "required": false, "description": "GitHub username/handle of the user you want the details for."},
+      {"name": "url", "required": false, "description": "GitHub user URL, e.g. https://github.com/torvalds."}
+    ],
+    "credits": 1,
+    "description": "Retrieves public GitHub user details."
+  },
+  {
+    "path": "/v1/github/user/activity",
+    "method": "GET",
+    "platform": "github",
+    "group": "GitHub",
+    "params": [
+      {"name": "handle", "required": false, "description": "GitHub handle."},
+      {"name": "url", "required": false, "description": "GitHub user URL, e.g. https://github.com/kentcdodds."},
+      {"name": "year", "required": false, "description": "When provided, returns profile contribution activity for that year."},
+      {"name": "cursor", "required": false, "description": "Cursor from the previous response. Pages backward by month through the selected year."}
+    ],
+    "credits": 1,
+    "description": "Retrieves GitHub profile contribution activity for a user from the public profile activity timeline."
+  },
+  {
+    "path": "/v1/github/user/contributions",
+    "method": "GET",
+    "platform": "github",
+    "group": "GitHub",
+    "params": [
+      {"name": "handle", "required": false, "description": "GitHub handle."},
+      {"name": "url", "required": false, "description": "GitHub profile URL."},
+      {"name": "year", "required": false, "description": "Contribution graph year. Defaults to the current year."}
+    ],
+    "credits": 1,
+    "description": "Retrieves the public GitHub contribution graph for a user and year, including total contributions and daily contribution counts/intensity."
+  },
+  {
+    "path": "/v1/github/user/followers",
+    "method": "GET",
+    "platform": "github",
+    "group": "GitHub",
+    "params": [
+      {"name": "handle", "required": false, "description": "GitHub username/handle of the user you want the followers for."},
+      {"name": "url", "required": false, "description": "GitHub user URL, e.g. https://github.com/torvalds."},
+      {"name": "cursor", "required": false, "description": "Cursor from the previous response. Defaults to 1."}
+    ],
+    "credits": 1,
+    "description": "Retrieves public GitHub followers for a user."
+  },
+  {
+    "path": "/v1/github/user/following",
+    "method": "GET",
+    "platform": "github",
+    "group": "GitHub",
+    "params": [
+      {"name": "handle", "required": false, "description": "GitHub handle."},
+      {"name": "url", "required": false, "description": "GitHub profile URL."},
+      {"name": "cursor", "required": false, "description": "Cursor from the previous response. Defaults to 1."}
+    ],
+    "credits": 1,
+    "description": "Retrieves public accounts followed by a GitHub user."
+  },
+  {
+    "path": "/v1/github/user/pull-requests",
+    "method": "GET",
+    "platform": "github",
+    "group": "GitHub",
+    "params": [
+      {"name": "handle", "required": true, "description": "GitHub username/handle of the user you want pull requests for."},
+      {"name": "since", "required": false, "description": "Only return pull requests created on or after this date."},
+      {"name": "until", "required": false, "description": "Only return pull requests created on or before this date."},
+      {"name": "cursor", "required": false, "description": "Cursor from the previous response. Defaults to 1."}
+    ],
+    "credits": 1,
+    "description": "Searches public GitHub pull requests authored by a user using GitHub's public search index."
+  },
+  {
+    "path": "/v1/github/user/repositories",
+    "method": "GET",
+    "platform": "github",
+    "group": "GitHub",
+    "params": [
+      {"name": "handle", "required": false, "description": "GitHub username/handle of the user you want the repositories for."},
+      {"name": "url", "required": false, "description": "GitHub user URL, e.g. https://github.com/kentcdodds."},
+      {"name": "type", "required": false, "description": "Repository type. Defaults to owner. One of: owner, all, member."},
+      {"name": "sort", "required": false, "description": "Sort by created, updated, pushed, or full_name. One of: created, updated, pushed, full_name."},
+      {"name": "direction", "required": false, "description": "Sort direction: ascending or descending. One of: asc, desc."},
+      {"name": "cursor", "required": false, "description": "Cursor from the previous response. Defaults to 1."}
+    ],
+    "credits": 1,
+    "description": "A user's public GitHub repositories with description, language, stars, forks and topics."
+  },
+  {
+    "path": "/v1/google/ad",
+    "method": "GET",
+    "platform": "google",
+    "group": "Google Ad Library",
+    "params": [
+      {"name": "url", "required": true, "description": "The url of the ad."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "description": "Details of one Google Ads Transparency ad: format, first and last shown, impressions."
+  },
+  {
+    "path": "/v1/google/adLibrary/advertisers/search",
+    "method": "GET",
+    "platform": "google",
+    "group": "Google Ad Library",
+    "params": [
+      {"name": "query", "required": true, "description": "The query to search for."},
+      {"name": "region", "required": false, "description": "2-letter country code to search in. Defaults to US when omitted."}
+    ],
+    "credits": 1,
+    "description": "Searches the Google Ad Transparency Library for advertisers by name."
+  },
+  {
+    "path": "/v1/google/company/ads",
+    "method": "GET",
+    "platform": "google",
+    "group": "Google Ad Library",
+    "params": [
+      {"name": "domain", "required": false, "description": "The domain of the company."},
+      {"name": "advertiser_id", "required": false, "description": "The advertiser id of the company."},
+      {"name": "topic", "required": false, "description": "The topic to search for. If you search for 'political', you will also need to pass a 'region', like 'US' or 'AU'. One of: all, political."},
+      {"name": "region", "required": false, "description": "The region to search for. Defaults to anywhere."},
+      {"name": "start_date", "required": false, "description": "Start date to search for. Format: YYYY-MM-DD."},
+      {"name": "end_date", "required": false, "description": "End date to search for. Format: YYYY-MM-DD."},
+      {"name": "platform", "required": false, "description": "Platform to search for. One of: google_maps, google_play, google_search, google_shopping, youtube."},
+      {"name": "format", "required": false, "description": "Ad format to search for. One of: text, image, video."},
+      {"name": "get_ad_details", "required": false, "description": "Set to true to get the ad details. Will cost 25 credits."},
+      {"name": "cursor", "required": false, "description": "Cursor to paginate through results."}
+    ],
+    "credits": 1,
+    "credits_max": 25,
+    "paid_params": ["get_ad_details"],
+    "cost_note": "1 credit for advertiserId and creativeId only; 25 credits when get_ad_details=true.",
+    "description": "Fetches public ads for a company from the Google Ad Transparency Library by domain or advertiser_id."
+  },
+  {
+    "path": "/v1/google/search",
+    "method": "GET",
+    "platform": "google",
+    "group": "Google",
+    "params": [
+      {"name": "query", "required": true, "description": "Search query."},
+      {"name": "region", "required": false, "description": "2 letter country code, ie US, UK, CA, etc This will show results from that country."},
+      {"name": "date_posted", "required": false, "description": "Date posted. One of: last-hour, last-day, last-week, last-month, last-year."},
+      {"name": "page", "required": false, "description": "Page number to retrieve. Must be between 1 and 11; page 12 or greater returns a 400 response."}
+    ],
+    "credits": 1,
+    "description": "Performs a Google search and returns organic results with url, title, and description for each result."
+  },
+  {
+    "path": "/v1/instagram/audio/reels",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "audio_id", "required": true, "description": "The audio id from the Instagram audio page URL."},
+      {"name": "cursor", "required": false, "description": "Pagination cursor returned by Instagram from the previous response."}
+    ],
+    "credits": 1,
+    "description": "Fetches the reels Instagram exposes for an audio page like instagram.com/reels/audio/{audio_id}/."
+  },
+  {
+    "path": "/v1/instagram/basic-profile",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "userId", "required": false, "description": "Instagram user id."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "description": "Fetches a lightweight Instagram profile summary by user ID."
+  },
+  {
+    "path": "/v1/instagram/post",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "url", "required": true, "description": "Instagram post or reel URL."},
+      {"name": "region", "required": false, "description": "2 letter country code to set the proxy in."},
+      {"name": "trim", "required": false, "description": "Set to true to get a trimmed response."},
+      {"name": "download_media", "required": false, "description": "Set to 'true' to download the media and return permanent URLs. Costs 10 credits if media is found, 1 otherwise."},
+      {"name": "include_play_count", "required": false, "description": "Set to false to omit `video_play_count` and skip its additional fetch for a faster response."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "credits_max": 10,
+    "paid_params": ["download_media"],
+    "cost_note": "10 credits if download_media=true finds media, else 1.",
+    "description": "A single Instagram post or reel: caption, counts, owner, media."
+  },
+  {
+    "path": "/v1/instagram/post/comment/replies",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "url", "required": true, "description": "The Instagram post or reel URL."},
+      {"name": "comment_id", "required": true, "description": "The parent comment ID from the Comments endpoint."},
+      {"name": "cursor", "required": false, "description": "The cursor to get more replies. Get `cursor` from the previous response."}
+    ],
+    "credits": 1,
+    "description": "Retrieves the public replies to a specific Instagram comment."
+  },
+  {
+    "path": "/v1/instagram/profile",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "handle", "required": true, "description": "Instagram handle."},
+      {"name": "trim", "required": false, "description": "Set to true to get a trimmed response."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "cost_note": "Confirmed age-gated or unavailable profiles (403/404) are not charged; private and missing-account placeholders cost 1.",
+    "description": "Public Instagram profile with recent posts; slower than basic-profile, use that when you only need profile details."
+  },
+  {
+    "path": "/v1/instagram/profile/post-count",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "handle", "required": true, "description": "Instagram handle."},
+      {"name": "allow_estimated", "required": false, "description": "Set to true to return scaled estimates when Instagram abbreviates counts for profiles with more than 10,000 posts."}
+    ],
+    "credits": 1,
+    "description": "Returns the post count shown on a public Instagram profile."
+  },
+  {
+    "path": "/v1/instagram/reels/trending",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [],
+    "credits": 1,
+    "description": "Discovers reels through Instagram's public Popular pages and current featured topics, with pagination handled internally."
+  },
+  {
+    "path": "/v1/instagram/search",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "query", "required": true, "description": "The username, hashtag, place, or keyword to search for."}
+    ],
+    "credits": 1,
+    "description": "Instagram-native lookup of accounts, hashtags and places, with keyword suggestions."
+  },
+  {
+    "path": "/v1/instagram/search/hashtag",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "hashtag", "required": true, "description": "The hashtag to search for. Include or omit the #."},
+      {"name": "date_posted", "required": false, "description": "Only return Google-indexed posts found in this relative window. One of: last-hour, last-day, last-week, last-month, last-year."},
+      {"name": "media_type", "required": false, "description": "Use all to search public posts and reels, or reels to only return reels. One of: all, reels."},
+      {"name": "cursor", "required": false, "description": "The cursor returned by the previous response."}
+    ],
+    "credits": 1,
+    "description": "Google-indexed public Instagram posts or reels for an exact hashtag, with optional date filters."
+  },
+  {
+    "path": "/v1/instagram/search/popular",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "query", "required": true, "description": "The Popular topic to search for."},
+      {"name": "cursor", "required": false, "description": "The opaque cursor returned by the previous response."}
+    ],
+    "credits": 1,
+    "description": "The posts Instagram curates for a topic, from its public /popular page."
+  },
+  {
+    "path": "/v1/instagram/search/profiles",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "query", "required": true, "description": "The profile name or username to search for."}
+    ],
+    "credits": 1,
+    "description": "Instagram-native profile lookup by name or keyword."
+  },
+  {
+    "path": "/v1/instagram/user/embed",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "handle", "required": true, "description": "Instagram handle."}
+    ],
+    "credits": 1,
+    "description": "Returns the raw HTML embed snippet for an Instagram user's profile widget."
+  },
+  {
+    "path": "/v1/instagram/user/highlight/detail",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "id", "required": false, "description": "The ID of the highlight to get details for."}
+    ],
+    "credits": 1,
+    "description": "Fetches the full contents of a specific Instagram story highlight album by its ID."
+  },
+  {
+    "path": "/v1/instagram/user/highlights",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "user_id", "required": false, "description": "Instagram user id. Use for faster response times."},
+      {"name": "handle", "required": false, "description": "Instagram handle. Use user_id for faster response times."}
+    ],
+    "credits": 1,
+    "description": "Lists all story highlight albums for an Instagram user."
+  },
+  {
+    "path": "/v1/instagram/user/reels",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "user_id", "required": false, "description": "Instagram user id. Use this for faster response times."},
+      {"name": "handle", "required": false, "description": "Instagram handle. Use user_id for faster response times."},
+      {"name": "max_id", "required": false, "description": "Max id to get more reels. Get 'max_id' from previous response."},
+      {"name": "trim", "required": false, "description": "Set to true for a trimmed down version of the response."}
+    ],
+    "credits": 1,
+    "description": "Returns a paginated list of a user's public Instagram reels (short-form videos)."
+  },
+  {
+    "path": "/v1/instagram/user/tagged-posts",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "user_id", "required": true, "description": "Numeric Instagram user ID."},
+      {"name": "cursor", "required": false, "description": "Cursor returned by the previous response."}
+    ],
+    "credits": 1,
+    "description": "Returns up to 10 public posts per page from an Instagram user's Tagged tab."
+  },
+  {
+    "path": "/v2/instagram/media/transcript",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "allow_long_transcription", "required": false, "description": "Paid opt-in, literal 'true' only. Allows AI transcription of videos over 120 seconds at 10 credits per started minute (all successful AI transcriptions in this mode, short ones too). Leave unset to stay at the flat price."},
+      {"name": "url", "required": true, "description": "Instagram post or reel URL."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "paid_params": ["allow_long_transcription"],
+    "cost_note": "Flat 1 credit for AI transcription up to 120 s (carousels too); empty results and errors cost 0; allow_long_transcription=true is 10 credits per started minute.",
+    "description": "AI speech-to-text transcript of an Instagram video post or reel."
+  },
+  {
+    "path": "/v2/instagram/post/comments",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "url", "required": true, "description": "The URL of the post or reel to get comments from."},
+      {"name": "cursor", "required": false, "description": "The cursor to get more comments. Get 'cursor' from previous response."},
+      {"name": "include_replies", "required": false, "description": "Set to true to include replies for every returned comment."}
+    ],
+    "credits": 1,
+    "credits_max": 15,
+    "paid_params": ["include_replies"],
+    "cost_note": "1 credit for a page with comments, 15 with include_replies=true even if no replies; a page with no comments costs 0.",
+    "description": "Retrieves comments on a public Instagram post or reel."
+  },
+  {
+    "path": "/v2/instagram/reels/search",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "query", "required": true, "description": "The keyword to search for."},
+      {"name": "date_posted", "required": false, "description": "Google-indexed date window. Recent hour/day filters are not supported because Google does not index Instagram reels reliably enough in those windows. One of: last-week, last-month, last-year."},
+      {"name": "page", "required": false, "description": "The page number to return. Must be between 1 and 11; page 12 or greater returns a 400 response."}
+    ],
+    "credits": 1,
+    "description": "Google-indexed Instagram reels matching a keyword, with optional date filters."
+  },
+  {
+    "path": "/v2/instagram/user/posts",
+    "method": "GET",
+    "platform": "instagram",
+    "group": "Instagram",
+    "params": [
+      {"name": "handle", "required": true, "description": "Instagram handle."},
+      {"name": "next_max_id", "required": false, "description": "Cursor to get next page of results."},
+      {"name": "trim", "required": false, "description": "Set to true to get a trimmed response."}
+    ],
+    "credits": 1,
+    "description": "Returns a paginated feed of a user's public Instagram posts, including reels, photos, videos, and carousels."
+  },
+  {
+    "path": "/v1/kick/clip",
+    "method": "GET",
+    "platform": "kick",
+    "group": "Kick",
+    "params": [
+      {"name": "url", "required": true, "description": "Kick clip URL."}
+    ],
+    "credits": 1,
+    "description": "Fetches detailed data for a Kick clip by URL, including video, metadata, and channel info."
+  },
+  {
+    "path": "/v1/kick/clip/transcript",
+    "method": "GET",
+    "platform": "kick",
+    "group": "Kick",
+    "params": [
+      {"name": "allow_long_transcription", "required": false, "description": "Paid opt-in, literal 'true' only. Allows AI transcription of videos over 120 seconds at 10 credits per started minute (all successful AI transcriptions in this mode, short ones too). Leave unset to stay at the flat price."},
+      {"name": "url", "required": true, "description": "Kick clip URL."},
+      {"name": "use_ai_as_fallback", "required": false, "description": "Set to 'true' to use paid AI only when native captions are missing (flat 1 credit for videos up to 120 s). Default false."}
+    ],
+    "credits": 1,
+    "paid_params": ["allow_long_transcription"],
+    "cost_note": "1 credit for native captions or short AI; none costs 0; allow_long_transcription=true is 10 credits per started minute.",
+    "description": "Gets a transcript from a public Kick clip. Checks native captions first; returned native captions cost 1 credit."
+  },
+  {
+    "path": "/v1/komi",
+    "method": "GET",
+    "platform": "komi",
+    "group": "Komi",
+    "params": [
+      {"name": "url", "required": true, "description": "URL to Komi page."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "description": "Scrapes a Komi page by URL, extracting the creator's profile, social links, and featured content."
+  },
+  {
+    "path": "/v1/kwai/post",
+    "method": "GET",
+    "platform": "kwai",
+    "group": "Kwai",
+    "params": [
+      {"name": "url", "required": false, "description": "Kwai post URL."}
+    ],
+    "credits": 1,
+    "description": "Fetches public Kwai post details including caption, media URLs, cover images, counts, author info, and music metadata."
+  },
+  {
+    "path": "/v1/kwai/profile",
+    "method": "GET",
+    "platform": "kwai",
+    "group": "Kwai",
+    "params": [
+      {"name": "handle", "required": false, "description": "Kwai profile handle. Use this or url."},
+      {"name": "url", "required": false, "description": "Kwai profile URL. Use this or handle."}
+    ],
+    "credits": 1,
+    "description": "Fetches public Kwai profile data including username, bio, avatar, verification status, gender, and public counts."
+  },
+  {
+    "path": "/v1/kwai/user/posts",
+    "method": "GET",
+    "platform": "kwai",
+    "group": "Kwai",
+    "params": [
+      {"name": "handle", "required": false, "description": "Kwai profile handle. Use this or url."},
+      {"name": "url", "required": false, "description": "Kwai profile URL. Use this or handle."},
+      {"name": "cursor", "required": false, "description": "Cursor from the previous response for the next page."},
+      {"name": "count", "required": false, "description": "Number of posts to return, max 50."}
+    ],
+    "credits": 1,
+    "description": "Fetches a paginated list of public Kwai posts for a user."
+  },
+  {
+    "path": "/v1/linkedin/ad",
+    "method": "GET",
+    "platform": "linkedin",
+    "group": "LinkedIn Ad Library",
+    "params": [
+      {"name": "url", "required": true, "description": "The url of the ad."}
+    ],
+    "credits": 1,
+    "description": "Retrieves detailed information about a specific LinkedIn ad by URL."
+  },
+  {
+    "path": "/v1/linkedin/ads/search",
+    "method": "GET",
+    "platform": "linkedin",
+    "group": "LinkedIn Ad Library",
+    "params": [
+      {"name": "company", "required": false, "description": "The company name to search for. 'Microsoft' for example."},
+      {"name": "keyword", "required": false, "description": "The keyword to search for."},
+      {"name": "companyId", "required": false, "description": "The company id to search for."},
+      {"name": "countries", "required": false, "description": "Comma separated list of countries. Example: US,CA,MX."},
+      {"name": "startDate", "required": false, "description": "Start date in YYYY-MM-DD format. Must be used with endDate and cannot be earlier than the date one year ago."},
+      {"name": "endDate", "required": false, "description": "End date in YYYY-MM-DD format. Must be used with startDate and cannot be today or a future date."},
+      {"name": "paginationToken", "required": false, "description": "Pagination token to paginate through results."}
+    ],
+    "credits": 1,
+    "description": "Searches the LinkedIn Ad Library by company name, keyword, or companyId with optional country and date filters."
+  },
+  {
+    "path": "/v1/linkedin/company",
+    "method": "GET",
+    "platform": "linkedin",
+    "group": "LinkedIn",
+    "params": [
+      {"name": "url", "required": true, "description": "The URL of the LinkedIn company page to get."}
+    ],
+    "credits": 1,
+    "description": "Fetches a LinkedIn company page with details."
+  },
+  {
+    "path": "/v1/linkedin/company/posts",
+    "method": "GET",
+    "platform": "linkedin",
+    "group": "LinkedIn",
+    "params": [
+      {"name": "url", "required": true, "description": "The LinkedIn company (/company/) or school (/school/) page URL, for example https://www.linkedin.com/school/oxfordsbs/."},
+      {"name": "page", "required": false, "description": "The page number to get."}
+    ],
+    "credits": 1,
+    "description": "Retrieves paginated posts from a LinkedIn company or school page, including each post's URL, ID, publication date, and full text content."
+  },
+  {
+    "path": "/v1/linkedin/post",
+    "method": "GET",
+    "platform": "linkedin",
+    "group": "LinkedIn",
+    "params": [
+      {"name": "url", "required": true, "description": "The URL of the LinkedIn post to get."}
+    ],
+    "credits": 1,
+    "description": "Fetches a single LinkedIn post or article."
+  },
+  {
+    "path": "/v1/linkedin/post/transcript",
+    "method": "GET",
+    "platform": "linkedin",
+    "group": "LinkedIn",
+    "params": [
+      {"name": "url", "required": true, "description": "The URL of the LinkedIn post to get the transcript from."}
+    ],
+    "credits": 1,
+    "cost_note": "1 credit when a transcript is returned; none costs 0.",
+    "description": "Fetches the transcript from a LinkedIn post video when LinkedIn exposes one publicly."
+  },
+  {
+    "path": "/v1/linkedin/profile",
+    "method": "GET",
+    "platform": "linkedin",
+    "group": "LinkedIn",
+    "params": [
+      {"name": "url", "required": true, "description": "The URL of the LinkedIn profile to get."}
+    ],
+    "credits": 1,
+    "description": "Retrieves a person's public LinkedIn profile data."
+  },
+  {
+    "path": "/v1/linkedin/search/posts",
+    "method": "GET",
+    "platform": "linkedin",
+    "group": "LinkedIn",
+    "params": [
+      {"name": "query", "required": true, "description": "Keyword or phrase to search for in public LinkedIn posts."},
+      {"name": "date_posted", "required": false, "description": "Date posted filter based on Google-indexed results. One of: last-hour, last-day, last-week, last-month, last-year."},
+      {"name": "cursor", "required": false, "description": "The cursor returned from the previous response."}
+    ],
+    "credits": 1,
+    "description": "Public LinkedIn posts and articles found through Google's index, with details when public."
+  },
+  {
+    "path": "/v1/pinterest/board",
+    "method": "GET",
+    "platform": "pinterest",
+    "group": "Pinterest",
+    "params": [
+      {"name": "url", "required": true, "description": "The URL of the board to get."},
+      {"name": "cursor", "required": false, "description": "The cursor to get the next page of results."},
+      {"name": "trim", "required": false, "description": "Set to true for a trimmed down version of the response."}
+    ],
+    "credits": 1,
+    "description": "Fetches a paginated list of pins from a Pinterest board by URL."
+  },
+  {
+    "path": "/v1/pinterest/pin",
+    "method": "GET",
+    "platform": "pinterest",
+    "group": "Pinterest",
+    "params": [
+      {"name": "url", "required": true, "description": "Pinterest pin URL."},
+      {"name": "trim", "required": false, "description": "Set to true for a trimmed down version of the response."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "description": "Fetches detailed information about a single Pinterest pin by URL."
+  },
+  {
+    "path": "/v1/pinterest/search",
+    "method": "GET",
+    "platform": "pinterest",
+    "group": "Pinterest",
+    "params": [
+      {"name": "query", "required": true, "description": "Search query."},
+      {"name": "cursor", "required": false, "description": "Cursor."},
+      {"name": "trim", "required": false, "description": "Set to true for a trimmed down version of the response."}
+    ],
+    "credits": 1,
+    "description": "Searches Pinterest for pins matching a query."
+  },
+  {
+    "path": "/v1/pinterest/user/boards",
+    "method": "GET",
+    "platform": "pinterest",
+    "group": "Pinterest",
+    "params": [
+      {"name": "handle", "required": true, "description": "The username of the user to get boards for. (e.g. broadstbullycom from https://www.pinterest.com/broadstbullycom/)."},
+      {"name": "trim", "required": false, "description": "Set to true for a trimmed down version of the response."}
+    ],
+    "credits": 1,
+    "description": "Fetches a paginated list of boards for a Pinterest user."
+  },
+  {
+    "path": "/v1/reddit/post",
+    "method": "GET",
+    "platform": "reddit",
+    "group": "Reddit",
+    "params": [
+      {"name": "url", "required": true, "description": "Reddit post URL."}
+    ],
+    "credits": 1,
+    "description": "Retrieves public Reddit post details by URL without fetching or returning comments."
+  },
+  {
+    "path": "/v1/reddit/post/comments",
+    "method": "GET",
+    "platform": "reddit",
+    "group": "Reddit",
+    "params": [
+      {"name": "url", "required": true, "description": "Reddit post URL."},
+      {"name": "cursor", "required": false, "description": "One opaque cursor returned by the previous response to get more comments or replies."},
+      {"name": "trim", "required": false, "description": "Set to true for a trimmed down version of the response."}
+    ],
+    "credits": 1,
+    "description": "A Reddit post's comments and their replies."
+  },
+  {
+    "path": "/v1/reddit/post/transcript",
+    "method": "GET",
+    "platform": "reddit",
+    "group": "Reddit",
+    "params": [
+      {"name": "url", "required": true, "description": "Reddit post URL or direct v.redd.it video URL."},
+      {"name": "language", "required": false, "description": "2 letter language code. Defaults to en."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "cost_note": "1 credit for native captions; empty transcripts and errors cost 0.",
+    "description": "Gets the transcript from a Reddit video post or direct v.redd.it URL when Reddit exposes a VTT caption file."
+  },
+  {
+    "path": "/v1/reddit/search",
+    "method": "GET",
+    "platform": "reddit",
+    "group": "Reddit",
+    "params": [
+      {"name": "query", "required": true, "description": "Search query."},
+      {"name": "filter", "required": false, "description": "Search posts or comments. One of: posts, comments."},
+      {"name": "sort", "required": false, "description": "Sort by. Comment search supports relevance, new, and top; comment_count is for post search only. One of: relevance, new, top, comment_count."},
+      {"name": "timeframe", "required": false, "description": "Post search timeframe. One of: all, day, week, month, year."},
+      {"name": "after", "required": false, "description": "Used to paginate to next page."},
+      {"name": "trim", "required": false, "description": "Set to true for a trimmed down version of the response."}
+    ],
+    "credits": 1,
+    "description": "Search Reddit posts (no upvote ratio in the answer)."
+  },
+  {
+    "path": "/v1/reddit/subreddit",
+    "method": "GET",
+    "platform": "reddit",
+    "group": "Reddit",
+    "params": [
+      {"name": "subreddit", "required": true, "description": "Subreddit name."},
+      {"name": "timeframe", "required": false, "description": "Timeframe to get posts from. One of: all, day, week, month, year."},
+      {"name": "sort", "required": false, "description": "Sort order. One of: best, hot, new, top, rising."},
+      {"name": "after", "required": false, "description": "After to get more posts. Get 'after' from previous response."},
+      {"name": "trim", "required": false, "description": "Set to true for a trimmed down version of the response."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "description": "A subreddit's posts, with score, comment count and upvote ratio."
+  },
+  {
+    "path": "/v1/reddit/subreddit/details",
+    "method": "GET",
+    "platform": "reddit",
+    "group": "Reddit",
+    "params": [
+      {"name": "subreddit", "required": false, "description": "Subreddit name. MUST be case sensitive."},
+      {"name": "url", "required": false, "description": "Subreddit URL."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "description": "Retrieves metadata about a subreddit by name or URL."
+  },
+  {
+    "path": "/v1/reddit/subreddit/search",
+    "method": "GET",
+    "platform": "reddit",
+    "group": "Reddit",
+    "params": [
+      {"name": "subreddit", "required": true, "description": "Subreddit name (e.g. 'Fitness', not 'r/Fitness' or a full URL)."},
+      {"name": "query", "required": false, "description": "Search query to find matching content."},
+      {"name": "sort", "required": false, "description": "Sort order. For posts/media: relevance, hot, top, new, comments. One of: relevance, hot, top, new, comments."},
+      {"name": "timeframe", "required": false, "description": "Timeframe to filter results. One of: all, year, month, week, day, hour."},
+      {"name": "cursor", "required": false, "description": "Cursor to get more results. Get 'cursor' from previous response."}
+    ],
+    "credits": 1,
+    "description": "Searches within a specific subreddit for posts, comments, and media matching a query."
+  },
+  {
+    "path": "/v1/rumble/channel/videos",
+    "method": "GET",
+    "platform": "rumble",
+    "group": "Rumble",
+    "params": [
+      {"name": "handle", "required": false, "description": "Rumble channel handle. If you'd prefer to use the URL instead, use the url parameter."},
+      {"name": "url", "required": false, "description": "Rumble channel URL. If you'd prefer to use the handle instead, use the handle parameter."},
+      {"name": "cursor", "required": false, "description": "Cursor from the previous response. This is the next page number, like 2 or 3."}
+    ],
+    "credits": 1,
+    "description": "Gets videos from a Rumble channel by handle or URL."
+  },
+  {
+    "path": "/v1/rumble/search",
+    "method": "GET",
+    "platform": "rumble",
+    "group": "Rumble",
+    "params": [
+      {"name": "query", "required": true, "description": "Search query."},
+      {"name": "cursor", "required": false, "description": "Cursor from the previous response. This is the next page number, like 2 or 3."}
+    ],
+    "credits": 1,
+    "description": "Searches Rumble videos by keyword. Returns matching videos and shorts with title, URL, thumbnail, channel, published date, viewCountText."
+  },
+  {
+    "path": "/v1/rumble/video",
+    "method": "GET",
+    "platform": "rumble",
+    "group": "Rumble",
+    "params": [
+      {"name": "url", "required": true, "description": "Rumble video URL."}
+    ],
+    "credits": 1,
+    "description": "Rumble video details by URL: title, channel, publish date, views, likes, captions."
+  },
+  {
+    "path": "/v1/rumble/video/comments",
+    "method": "GET",
+    "platform": "rumble",
+    "group": "Rumble",
+    "params": [
+      {"name": "url", "required": true, "description": "Rumble video URL."}
+    ],
+    "credits": 1,
+    "description": "Gets all top level comments for a Rumble video by URL."
+  },
+  {
+    "path": "/v1/rumble/video/transcript",
+    "method": "GET",
+    "platform": "rumble",
+    "group": "Rumble",
+    "params": [
+      {"name": "url", "required": true, "description": "Rumble video URL."}
+    ],
+    "credits": 1,
+    "cost_note": "1 credit for native captions; empty transcripts and errors cost 0.",
+    "description": "Gets a Rumble video's transcript when captions are available."
+  },
+  {
+    "path": "/v1/snapchat/profile",
+    "method": "GET",
+    "platform": "snapchat",
+    "group": "Snapchat",
+    "params": [
+      {"name": "handle", "required": true, "description": "Snapchat username."}
+    ],
+    "credits": 1,
+    "description": "Retrieves a Snapchat user's public profile by handle, including identity, stories, and spotlight content."
+  },
+  {
+    "path": "/v1/snapchat/spotlight",
+    "method": "GET",
+    "platform": "snapchat",
+    "group": "Snapchat",
+    "params": [
+      {"name": "url", "required": true, "description": "Snapchat Spotlight URL."}
+    ],
+    "credits": 1,
+    "description": "Fetches public data for a Snapchat Spotlight video by URL."
+  },
+  {
+    "path": "/v1/snapchat/spotlight/comments",
+    "method": "GET",
+    "platform": "snapchat",
+    "group": "Snapchat",
+    "params": [
+      {"name": "url", "required": true, "description": "Snapchat Spotlight URL."},
+      {"name": "cursor", "required": false, "description": "Pagination cursor from the previous response."}
+    ],
+    "credits": 1,
+    "description": "Fetches public comments from Snapchat's Spotlight comments API by URL."
+  },
+  {
+    "path": "/v1/soundcloud/artist",
+    "method": "GET",
+    "platform": "soundcloud",
+    "group": "SoundCloud",
+    "params": [
+      {"name": "handle", "required": false, "description": "SoundCloud artist handle. If you'd prefer to use the URL instead, you can use the url parameter instead."},
+      {"name": "url", "required": false, "description": "SoundCloud artist URL. If you'd prefer to use the handle instead, you can use the handle parameter instead."}
+    ],
+    "credits": 1,
+    "description": "Fetches detailed information about a SoundCloud artist by its handle or URL."
+  },
+  {
+    "path": "/v1/soundcloud/artist/tracks",
+    "method": "GET",
+    "platform": "soundcloud",
+    "group": "SoundCloud",
+    "params": [
+      {"name": "handle", "required": false, "description": "SoundCloud artist handle. If you'd prefer to use the URL instead, you can use the url parameter instead."},
+      {"name": "url", "required": false, "description": "SoundCloud artist tracks URL. If you'd prefer to use the handle instead, you can use the handle parameter instead."},
+      {"name": "cursor", "required": false, "description": "Cursor to get more tracks. Get 'cursor' from previous response."}
+    ],
+    "credits": 1,
+    "description": "Fetches tracks/songs for a SoundCloud artist by handle or URL."
+  },
+  {
+    "path": "/v1/soundcloud/track",
+    "method": "GET",
+    "platform": "soundcloud",
+    "group": "SoundCloud",
+    "params": [
+      {"name": "url", "required": true, "description": "SoundCloud track URL."}
+    ],
+    "credits": 1,
+    "description": "Fetches detailed information about a SoundCloud track/song by URL."
+  },
+  {
+    "path": "/v1/spotify/album",
+    "method": "GET",
+    "platform": "spotify",
+    "group": "Spotify",
+    "params": [
+      {"name": "id", "required": false, "description": "Spotify album id. If you'd prefer to use the URL instead, you can use the url parameter instead."},
+      {"name": "url", "required": false, "description": "Spotify album URL. If you'd prefer to use the id instead, you can use the id parameter instead."}
+    ],
+    "credits": 1,
+    "description": "Retrieves detailed information about a Spotify album by its id or URL."
+  },
+  {
+    "path": "/v1/spotify/artist",
+    "method": "GET",
+    "platform": "spotify",
+    "group": "Spotify",
+    "params": [
+      {"name": "id", "required": false, "description": "Spotify artist id. If you'd prefer to use the URL instead, you can use the url parameter instead."},
+      {"name": "url", "required": false, "description": "Spotify artist URL. If you'd prefer to use the id instead, you can use the id parameter instead."}
+    ],
+    "credits": 1,
+    "description": "Retrieves detailed information about a Spotify artist by their handle, including name, followers count, genres, and related artists."
+  },
+  {
+    "path": "/v1/spotify/playlist",
+    "method": "GET",
+    "platform": "spotify",
+    "group": "Spotify",
+    "params": [
+      {"name": "id", "required": false, "description": "Spotify playlist id. If you'd prefer to use the URL instead, you can use the url parameter instead."},
+      {"name": "url", "required": false, "description": "Spotify playlist URL. If you'd prefer to use the id instead, you can use the id parameter instead."},
+      {"name": "cursor", "required": false, "description": "Cursor returned by the previous response. Omit it for the first page."}
+    ],
+    "credits": 1,
+    "description": "Retrieves public Spotify playlist metadata and up to 50 tracks by playlist id or URL."
+  },
+  {
+    "path": "/v1/spotify/podcast",
+    "method": "GET",
+    "platform": "spotify",
+    "group": "Spotify",
+    "params": [
+      {"name": "id", "required": false, "description": "Spotify podcast id. If you'd prefer to use the URL instead, you can use the url parameter instead."},
+      {"name": "url", "required": false, "description": "Spotify podcast URL. If you'd prefer to use the id instead, you can use the id parameter instead."}
+    ],
+    "credits": 1,
+    "description": "Retrieves detailed information about a Spotify podcast by its id or URL."
+  },
+  {
+    "path": "/v1/spotify/podcast/episodes",
+    "method": "GET",
+    "platform": "spotify",
+    "group": "Spotify",
+    "params": [
+      {"name": "id", "required": false, "description": "Spotify podcast id. If you'd prefer to use the URL instead, you can use the url parameter instead."},
+      {"name": "url", "required": false, "description": "Spotify podcast URL. If you'd prefer to use the id instead, you can use the id parameter instead."},
+      {"name": "cursor", "required": false, "description": "Cursor returned by the previous response. Omit for the first page."}
+    ],
+    "credits": 1,
+    "description": "Returns episodes for a Spotify podcast. Pass the cursor returned by a response to get the next page."
+  },
+  {
+    "path": "/v1/spotify/search",
+    "method": "GET",
+    "platform": "spotify",
+    "group": "Spotify",
+    "params": [
+      {"name": "query", "required": true, "description": "Search query."}
+    ],
+    "credits": 1,
+    "description": "Search Spotify for tracks, artists, albums, episodes, podcasts, and audiobooks."
+  },
+  {
+    "path": "/v1/spotify/track",
+    "method": "GET",
+    "platform": "spotify",
+    "group": "Spotify",
+    "params": [
+      {"name": "id", "required": false, "description": "Spotify track id. If you'd prefer to use the URL instead, you can use the url parameter instead."},
+      {"name": "url", "required": false, "description": "Spotify song URL. If you'd prefer to use the id instead, you can use the id parameter instead."}
+    ],
+    "credits": 1,
+    "description": "Retrieves detailed information about a Spotify track by its id or URL."
+  },
+  {
+    "path": "/v1/telegram/channel",
+    "method": "GET",
+    "platform": "telegram",
+    "group": "Telegram",
+    "params": [
+      {"name": "handle", "required": true, "description": "Public Telegram handle, @handle, or t.me channel URL."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "description": "Retrieves public Telegram channel or group metadata."
+  },
+  {
+    "path": "/v1/telegram/channel/posts",
+    "method": "GET",
+    "platform": "telegram",
+    "group": "Telegram",
+    "params": [
+      {"name": "handle", "required": true, "description": "Public Telegram handle, @handle, or t.me channel URL."},
+      {"name": "cursor", "required": false, "description": "Numeric cursor returned by the previous page."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "cost_note": "Empty and terminal pages are not charged.",
+    "description": "One public web-preview page of a Telegram channel's posts, with views, reactions and forwards."
+  },
+  {
+    "path": "/v1/telegram/post",
+    "method": "GET",
+    "platform": "telegram",
+    "group": "Telegram",
+    "params": [
+      {"name": "url", "required": true, "description": "Public Telegram post URL."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "description": "One public Telegram post with text, date, views, reactions and media previews."
+  },
+  {
+    "path": "/v1/threads/post",
+    "method": "GET",
+    "platform": "threads",
+    "group": "Threads",
+    "params": [
+      {"name": "url", "required": true, "description": "The URL of the post to get."},
+      {"name": "trim", "required": false, "description": "Set to true for a trimmed down version of the response."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "description": "Fetches a single Threads post by URL."
+  },
+  {
+    "path": "/v1/threads/profile",
+    "method": "GET",
+    "platform": "threads",
+    "group": "Threads",
+    "params": [
+      {"name": "handle", "required": true, "description": "Threads username."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "description": "Retrieves a Threads user's public profile."
+  },
+  {
+    "path": "/v1/threads/search",
+    "method": "GET",
+    "platform": "threads",
+    "group": "Threads",
+    "params": [
+      {"name": "query", "required": true, "description": "Keyword to search for."},
+      {"name": "start_date", "required": false, "description": "Start date to search for."},
+      {"name": "end_date", "required": false, "description": "End date to search for."},
+      {"name": "trim", "required": false, "description": "Set to true for a trimmed down version of the response."}
+    ],
+    "credits": 1,
+    "description": "Search Threads posts (often answers empty)."
+  },
+  {
+    "path": "/v1/threads/search/users",
+    "method": "GET",
+    "platform": "threads",
+    "group": "Threads",
+    "params": [
+      {"name": "query", "required": true, "description": "Username to search for."}
+    ],
+    "credits": 1,
+    "description": "Searches for Threads users by username, returning matching profiles with username, full_name, profile_pic_url, is_verified, and pk."
+  },
+  {
+    "path": "/v1/threads/user/posts",
+    "method": "GET",
+    "platform": "threads",
+    "group": "Threads",
+    "params": [
+      {"name": "handle", "required": true, "description": "Threads username."},
+      {"name": "trim", "required": false, "description": "Set to true for a trimmed down version of the response."}
+    ],
+    "credits": 1,
+    "description": "A Threads user's posts."
+  },
+  {
+    "path": "/v1/tiktok/ad-library/ad",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok Ad Library",
+    "params": [
+      {"name": "ad_id", "required": true, "description": "Creative Center Top Ads material ID or URL, or a public Ads Library ad ID or library.tiktok.com detail URL."}
+    ],
+    "credits": 1,
+    "description": "Fetches one TikTok ad by ID or URL. It first checks Creative Center Top Ads (ads.tiktok.com), then TikTok's public transparency Ads Library."
+  },
+  {
+    "path": "/v1/tiktok/ad-library/search",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok Ad Library",
+    "params": [
+      {"name": "query", "required": false, "description": "General ad search. Provide either query or advertiser_name, not both."},
+      {"name": "advertiser_name", "required": false, "description": "Advertiser name to resolve through TikTok's typeahead and search by advertiser entity."},
+      {"name": "adv_biz_ids", "required": false, "description": "TikTok advertiser business ID from a See all ads link."},
+      {"name": "cursor", "required": false, "description": "Opaque cursor returned from the previous response."}
+    ],
+    "credits": 1,
+    "description": "Searches TikTok's public Ads Library using either query for a general search or advertiser_name for advertiser-specific results."
+  },
+  {
+    "path": "/v1/tiktok/collection/videos",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "url", "required": true, "description": "Public TikTok collection URL."},
+      {"name": "cursor", "required": false, "description": "Cursor to get more videos. Use max_cursor from the previous response."}
+    ],
+    "credits": 1,
+    "description": "Fetches the videos saved in a public TikTok collection, which TikTok also calls a playlist."
+  },
+  {
+    "path": "/v1/tiktok/creators/popular",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "page", "required": false, "description": "Page number."},
+      {"name": "sortBy", "required": false, "description": "Sort creators by engagement, follower count, or average views. One of: engagement, follower, avg_views."},
+      {"name": "followerCount", "required": false, "description": "Filter by follower count range. One of: 10K-100K, 100K-1M, 1M-10M, 10M+."},
+      {"name": "creatorCountry", "required": false, "description": "Country code of the creator. One of: AU, BR, CA, EG, FR, DE, ID, IL, IT, JP, MY, PH, RU, SA, SG, KR, ES, TW, TH, TR, AE, GB, US, VN."},
+      {"name": "audienceCountry", "required": false, "description": "Country code of the audience/follower. One of: AU, BR, CA, EG, FR, DE, ID, IL, IT, JP, MY, PH, RU, SA, SG, KR, ES, TW, TH, TR, AE, GB, US, VN."}
+    ],
+    "credits": 1,
+    "description": "Discovers trending and popular TikTok creators, filterable by follower count range, creator country, and audience country."
+  },
+  {
+    "path": "/v1/tiktok/get-trending-feed",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "region", "required": true, "description": "Where you want the proxy to be. This doesn't mean that you will only see TikToks from this region, you will just see the content that isn't banned in that region."},
+      {"name": "trim", "required": false, "description": "Set to true to get a trimmed response."}
+    ],
+    "credits": 1,
+    "description": "Fetches TikTok's trending/For You feed for a given region — useful for discovering viral content and what's currently popular."
+  },
+  {
+    "path": "/v1/tiktok/live",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "room_id", "required": true, "description": "TikTok live room id. Get this from `/v1/tiktok/user/live` in `liveRoomUserInfo.roomId` or `liveRoom.id` when the user is live."},
+      {"name": "user_id", "required": true, "description": "TikTok numeric user id for the live owner. Get this from `/v1/tiktok/profile` in `user.id`."}
+    ],
+    "credits": 1,
+    "description": "Gets curated room-level info for a TikTok live from TikTok's public live-room source."
+  },
+  {
+    "path": "/v1/tiktok/product",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok Shop",
+    "params": [
+      {"name": "url", "required": true, "description": "The URL of the product to get details for."},
+      {"name": "region", "required": false, "description": "Region for the product details request. US is the reliable region right now; non-US regions should not be considered reliable and may return `bad_request` or missing product data."}
+    ],
+    "credits": 1,
+    "description": "Fetches full details for a specific US TikTok Shop product by its URL, including stock levels and affiliate videos."
+  },
+  {
+    "path": "/v1/tiktok/profile",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "handle", "required": false, "description": "TikTok handle. You can pass handle or user_id."},
+      {"name": "user_id", "required": false, "description": "TikTok user id."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "description": "Public TikTok profile by handle or user_id: bio, verification and account stats."
+  },
+  {
+    "path": "/v1/tiktok/profile/region",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "handle", "required": true, "description": "TikTok handle."}
+    ],
+    "credits": 1,
+    "description": "Returns the TikTok region code for a public profile, like `US` for United States or `MX` for Mexico."
+  },
+  {
+    "path": "/v1/tiktok/search/hashtag",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "hashtag", "required": true, "description": "Hashtag to search for (without #)."},
+      {"name": "region", "required": false, "description": "Region the proxy will be set to. Note: this isn't going to grab you all tiktoks from this region, you're just setting the proxy there."},
+      {"name": "cursor", "required": false, "description": "Cursor to get more videos. Get 'cursor' from previous response."},
+      {"name": "trim", "required": false, "description": "Set to true to get a trimmed response."}
+    ],
+    "credits": 1,
+    "description": "Searches for TikTok videos under a specific hashtag — useful for finding content by topic or trend."
+  },
+  {
+    "path": "/v1/tiktok/search/keyword",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "query", "required": true, "description": "Keyword to search for."},
+      {"name": "date_posted", "required": false, "description": "Time Frame. One of: yesterday, this-week, this-month, last-3-months, last-6-months, all-time."},
+      {"name": "sort_by", "required": false, "description": "Sort by. One of: relevance, most-liked, date-posted."},
+      {"name": "region", "required": false, "description": "Note, this doesn't filter the tiktoks only in a specfic region, it puts the proxy there."},
+      {"name": "cursor", "required": false, "description": "Cursor to get more videos. Get 'cursor' from previous response."},
+      {"name": "trim", "required": false, "description": "Set to true to get a trimmed response."}
+    ],
+    "credits": 1,
+    "description": "Searches for TikTok videos by keyword or phrase — the general video search across all of TikTok."
+  },
+  {
+    "path": "/v1/tiktok/search/suggestions",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "query", "required": true, "description": "Search query to get suggestions for."},
+      {"name": "region", "required": false, "description": "Region code for suggestions."}
+    ],
+    "credits": 1,
+    "description": "Gets the autocomplete suggestions TikTok shows while someone is typing in search."
+  },
+  {
+    "path": "/v1/tiktok/search/top",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "query", "required": true, "description": "Keyword to search for."},
+      {"name": "publish_time", "required": false, "description": "Time Frame TikTok was posted. One of: yesterday, this-week, this-month, last-3-months, last-6-months, all-time."},
+      {"name": "sort_by", "required": false, "description": "Sort by. One of: relevance, most-liked, date-posted."},
+      {"name": "region", "required": false, "description": "Note, this doesn't filter the tiktoks only in a specfic region, it puts the proxy there."},
+      {"name": "cursor", "required": false, "description": "Cursor to get more videos. Get 'cursor' from previous response."}
+    ],
+    "credits": 1,
+    "description": "Searches TikTok's 'Top' results by query — returns both videos and photo carousels, unlike keyword search which only returns videos."
+  },
+  {
+    "path": "/v1/tiktok/search/users",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "query", "required": true, "description": "Search query for users."},
+      {"name": "cursor", "required": false, "description": "Cursor to get more users. Get 'cursor' from previous response."},
+      {"name": "trim", "required": false, "description": "Set to true to get a trimmed response."}
+    ],
+    "credits": 1,
+    "description": "Searches for TikTok users by keyword or name — useful for finding creators or accounts matching a query."
+  },
+  {
+    "path": "/v1/tiktok/shop/product/reviews",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok Shop",
+    "params": [
+      {"name": "url", "required": false, "description": "The URL of the product (required if product_id is not provided)."},
+      {"name": "product_id", "required": false, "description": "The ID of the product (required if url is not provided)."},
+      {"name": "region", "required": false, "description": "The region of the product. US is the reliable region right now; non-US regions should not be considered reliable and may return limited or inconsistent review data."},
+      {"name": "page", "required": false, "description": "The page number of the reviews."}
+    ],
+    "credits": 1,
+    "description": "Fetches customer reviews for a TikTok Shop product by URL or product_id."
+  },
+  {
+    "path": "/v1/tiktok/shop/products",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok Shop",
+    "params": [
+      {"name": "url", "required": true, "description": "The TikTok Shop store URL."},
+      {"name": "cursor", "required": false, "description": "Cursor parameter from the previous response to retrieve the next page of products."},
+      {"name": "sort_by", "required": false, "description": "Sort products by best-selling items (`top`) or newest products (`new_releases`). One of: top, new_releases."},
+      {"name": "region", "required": false, "description": "Region to get shop products from. Defaults to US if not provided. One of: US, GB, DE, FR, IT, ID, MY, MX, PH, SG, ES, TH, VN, BR, JP, IE."}
+    ],
+    "credits": 1,
+    "description": "Lists all products from a specific TikTok Shop store by its URL."
+  },
+  {
+    "path": "/v1/tiktok/shop/search",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok Shop",
+    "params": [
+      {"name": "query", "required": true, "description": "Term you want to search for."},
+      {"name": "page", "required": false, "description": "Page number to retrieve."},
+      {"name": "region", "required": false, "description": "Region to search shop products in. Non-US TikTok Shop regions are not reliable right now and may return limited or inconsistent results. One of: US, GB, DE, FR, IT, ID, MY, MX, PH, SG, ES, TH, VN, BR, JP, IE."}
+    ],
+    "credits": 1,
+    "description": "Searches TikTok Shop for products matching a keyword query."
+  },
+  {
+    "path": "/v1/tiktok/song",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "clipId", "required": true, "description": "This is a little confusing because this isn't songId like you'd think."}
+    ],
+    "credits": 1,
+    "description": "Fetches detailed metadata for a specific TikTok sound or song by its clipId."
+  },
+  {
+    "path": "/v1/tiktok/song/videos",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "clipId", "required": false, "description": "This is clipId. Can be found on a url like so: https://www.tiktok.com/music/That%27s-Who-I-Praise-7370375686554782506, where 7370375686554782506 is the clipId."},
+      {"name": "cursor", "required": false, "description": "The cursor to get the next page of results."}
+    ],
+    "credits": 1,
+    "description": "Fetches TikTok videos that use a specific sound or song, identified by its clipId."
+  },
+  {
+    "path": "/v1/tiktok/user/audience",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "handle", "required": true, "description": "TikTok handle."}
+    ],
+    "credits": 26,
+    "cost_note": "Documented flat price of 26 credits per request.",
+    "description": "Retrieves audience demographic data for a TikTok user, showing where their followers are located by country."
+  },
+  {
+    "path": "/v1/tiktok/user/followers",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "handle", "required": false, "description": "TikTok handle."},
+      {"name": "user_id", "required": false, "description": "User id. Use this for faster response times."},
+      {"name": "min_time", "required": false, "description": "Used to paginate. Get 'min_time' from previous response."},
+      {"name": "trim", "required": false, "description": "Set to true to get a trimmed response."}
+    ],
+    "credits": 1,
+    "description": "Retrieves the follower list of a TikTok account by handle or user_id — useful for seeing who follows a creator or getting subscriber data."
+  },
+  {
+    "path": "/v1/tiktok/user/following",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "handle", "required": true, "description": "TikTok handle."},
+      {"name": "min_time", "required": false, "description": "Used to paginate. Get 'min_time' from previous response."},
+      {"name": "trim", "required": false, "description": "Set to true to get a trimmed response."}
+    ],
+    "credits": 1,
+    "description": "Retrieves the following list — accounts that a TikTok user follows — by their handle."
+  },
+  {
+    "path": "/v1/tiktok/user/live",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "handle", "required": true, "description": "TikTok handle."}
+    ],
+    "credits": 1,
+    "description": "Checks a TikTok user's live status and retrieves available live room details."
+  },
+  {
+    "path": "/v1/tiktok/user/showcase",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok Shop",
+    "params": [
+      {"name": "handle", "required": true, "description": "The handle of the user."},
+      {"name": "region", "required": false, "description": "Region to put the proxy in. Non-US TikTok Shop regions are not reliable right now and may return limited or inconsistent showcase data."},
+      {"name": "cursor", "required": false, "description": "The cursor to the next page of products."}
+    ],
+    "credits": 1,
+    "description": "Fetches products featured in a TikTok user's public showcase — the products a creator promotes on their profile."
+  },
+  {
+    "path": "/v1/tiktok/video/comment/replies",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "comment_id", "required": true, "description": "TikTok comment ID. This is the cid from the comments endpoint."},
+      {"name": "url", "required": true, "description": "TikTok video URL. This is the url from the comments endpoint."},
+      {"name": "cursor", "required": false, "description": "Cursor to get more replies. Get 'cursor' from previous response."}
+    ],
+    "credits": 1,
+    "description": "Fetches replies to a specific TikTok comment by its ID."
+  },
+  {
+    "path": "/v1/tiktok/video/comments",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "url", "required": true, "description": "TikTok video URL."},
+      {"name": "cursor", "required": false, "description": "Cursor to get more comments. Get 'cursor' from previous response."},
+      {"name": "trim", "required": false, "description": "Set to true to get a trimmed response."}
+    ],
+    "credits": 1,
+    "cost_note": "A page with comments costs 1; a successful empty page costs 0.",
+    "description": "Fetches comments on a TikTok video by URL — useful for reading audience reactions, replies, and engagement."
+  },
+  {
+    "path": "/v1/tiktok/video/transcript",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "allow_long_transcription", "required": false, "description": "Paid opt-in, literal 'true' only. Allows AI transcription of videos over 120 seconds at 10 credits per started minute (all successful AI transcriptions in this mode, short ones too). Leave unset to stay at the flat price."},
+      {"name": "url", "required": true, "description": "TikTok video URL."},
+      {"name": "language", "required": false, "description": "Language of the transcript. 2 letter language code, ie 'en', 'es', 'fr', 'de', 'it', 'ja', 'ko', 'zh'."},
+      {"name": "use_ai_as_fallback", "required": false, "description": "Set to 'true' to use paid AI only when native captions are missing (flat 1 credit for videos up to 120 s). Default false."}
+    ],
+    "credits": 1,
+    "paid_params": ["allow_long_transcription"],
+    "cost_note": "1 credit when native captions or short AI (up to 120 s) return a transcript; no transcript costs 0; allow_long_transcription=true is 10 credits per started minute (a 3-minute video is 30).",
+    "description": "Existing captions of a TikTok video; paid AI fallback only if you opt in."
+  },
+  {
+    "path": "/v2/tiktok/video",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "url", "required": true, "description": "TikTok video or photo/slideshow URL."},
+      {"name": "get_transcript", "required": false, "description": "Native captions are opt-in via get_transcript=true and are included in the existing base endpoint price."},
+      {"name": "region", "required": false, "description": "Two-letter country code passed to the primary post source."},
+      {"name": "trim", "required": false, "description": "Set to true to get a trimmed response."},
+      {"name": "download_media", "required": false, "description": "Set to 'true' to download the media and return permanent URLs. Costs 10 credits if media is found, 1 otherwise."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "credits_max": 10,
+    "paid_params": ["download_media"],
+    "cost_note": "10 credits if download_media=true finds media, else 1. get_transcript (native captions) is included.",
+    "description": "Fetches detailed data for a single TikTok video by URL, including its metadata, engagement stats, and optionally its transcript/captions."
+  },
+  {
+    "path": "/v3/tiktok/profile/videos",
+    "method": "GET",
+    "platform": "tiktok",
+    "group": "TikTok",
+    "params": [
+      {"name": "handle", "required": true, "description": "TikTok handle."},
+      {"name": "user_id", "required": false, "description": "TikTok user id. Use this for faster responses."},
+      {"name": "sort_by", "required": false, "description": "What to sort by. One of: latest, popular."},
+      {"name": "max_cursor", "required": false, "description": "Cursor to get more videos. Get 'max_cursor' from previous response."},
+      {"name": "region", "required": false, "description": "Country code passed to the profile-feed source."},
+      {"name": "include_pinned", "required": false, "description": "Whether to include pinned posts. Defaults to true."},
+      {"name": "trim", "required": false, "description": "Set to true for a trimmed down version of the response."}
+    ],
+    "credits": 1,
+    "description": "Fetches videos posted by a TikTok user, sortable by latest or most popular — use this to get a creator's video feed or TikToks."
+  },
+  {
+    "path": "/v1/truthsocial/post",
+    "method": "GET",
+    "platform": "truthsocial",
+    "group": "Truth Social",
+    "params": [
+      {"name": "url", "required": true, "description": "Truth Social post URL."},
+      {"name": "download_media", "required": false, "description": "Set to 'true' to download the media and return permanent URLs. Costs 10 credits if media is found, 1 otherwise."}
+    ],
+    "credits": 1,
+    "credits_max": 10,
+    "paid_params": ["download_media"],
+    "cost_note": "10 credits if download_media=true finds media, else 1.",
+    "description": "Fetches a single Truth Social post by URL."
+  },
+  {
+    "path": "/v1/truthsocial/profile",
+    "method": "GET",
+    "platform": "truthsocial",
+    "group": "Truth Social",
+    "params": [
+      {"name": "handle", "required": true, "description": "Truth Social username."}
+    ],
+    "credits": 1,
+    "description": "Retrieves a Truth Social user's public profile."
+  },
+  {
+    "path": "/v1/truthsocial/user/posts",
+    "method": "GET",
+    "platform": "truthsocial",
+    "group": "Truth Social",
+    "params": [
+      {"name": "handle", "required": false, "description": "Truth Social username."},
+      {"name": "user_id", "required": false, "description": "Truth Social user id. Use this for faster response times."},
+      {"name": "next_max_id", "required": false, "description": "Used to paginate to next page."},
+      {"name": "trim", "required": false, "description": "Set to true for a trimmed down version of the response."}
+    ],
+    "credits": 1,
+    "description": "Fetches a paginated list of posts from a Truth Social user."
+  },
+  {
+    "path": "/v1/twitch/clip",
+    "method": "GET",
+    "platform": "twitch",
+    "group": "Twitch",
+    "params": [
+      {"name": "url", "required": true, "description": "Twitch clip URL."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "description": "Fetches detailed data for a Twitch clip by URL, including metadata and direct video URLs."
+  },
+  {
+    "path": "/v1/twitch/clip/transcript",
+    "method": "GET",
+    "platform": "twitch",
+    "group": "Twitch",
+    "params": [
+      {"name": "allow_long_transcription", "required": false, "description": "Paid opt-in, literal 'true' only. Allows AI transcription of videos over 120 seconds at 10 credits per started minute (all successful AI transcriptions in this mode, short ones too). Leave unset to stay at the flat price."},
+      {"name": "url", "required": true, "description": "Twitch clip URL."},
+      {"name": "use_ai_as_fallback", "required": false, "description": "Set to 'true' to use paid AI only when native captions are missing (flat 1 credit for videos up to 120 s). Default false."}
+    ],
+    "credits": 1,
+    "paid_params": ["allow_long_transcription"],
+    "cost_note": "1 credit for native captions or short AI; none costs 0; allow_long_transcription=true is 10 credits per started minute.",
+    "description": "Gets a transcript from a public Twitch clip. Checks native captions first; returned native captions cost 1 credit."
+  },
+  {
+    "path": "/v1/twitch/profile",
+    "method": "GET",
+    "platform": "twitch",
+    "group": "Twitch",
+    "params": [
+      {"name": "handle", "required": true, "description": "Twitch handle."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "description": "Retrieves a Twitch user's public profile by handle, including identity, social links, and content."
+  },
+  {
+    "path": "/v1/twitch/user/schedule",
+    "method": "GET",
+    "platform": "twitch",
+    "group": "Twitch",
+    "params": [
+      {"name": "handle", "required": true, "description": "Twitch handle."}
+    ],
+    "credits": 1,
+    "description": "Fetches a user's schedule by handle, returning a list of scheduled events with start time, end time, title, description, and thumbnail URL."
+  },
+  {
+    "path": "/v1/twitch/user/videos",
+    "method": "GET",
+    "platform": "twitch",
+    "group": "Twitch",
+    "params": [
+      {"name": "handle", "required": true, "description": "Twitch handle."},
+      {"name": "filter_by", "required": false, "description": "Filter by. One of: HIGHLIGHT, ARCHIVE, UPLOAD."},
+      {"name": "sort_by", "required": false, "description": "Sort by. One of: TIME, VIEWS."}
+    ],
+    "credits": 1,
+    "description": "Fetches a list of videos (100 max) for a Twitch user."
+  },
+  {
+    "path": "/v1/twitter/community",
+    "method": "GET",
+    "platform": "twitter",
+    "group": "Twitter",
+    "params": [
+      {"name": "url", "required": true, "description": "Community URL."}
+    ],
+    "credits": 1,
+    "description": "Retrieves details about a Twitter/X Community by URL."
+  },
+  {
+    "path": "/v1/twitter/community/tweets",
+    "method": "GET",
+    "platform": "twitter",
+    "group": "Twitter",
+    "params": [
+      {"name": "url", "required": true, "description": "Community URL."}
+    ],
+    "credits": 1,
+    "description": "Fetches tweets posted within a Twitter/X Community by URL."
+  },
+  {
+    "path": "/v1/twitter/profile",
+    "method": "GET",
+    "platform": "twitter",
+    "group": "Twitter",
+    "params": [
+      {"name": "handle", "required": true, "description": "Twitter handle."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "description": "Retrieves a Twitter user's profile by handle, including account metadata and statistics."
+  },
+  {
+    "path": "/v1/twitter/search/posts",
+    "method": "GET",
+    "platform": "twitter",
+    "group": "Twitter",
+    "params": [
+      {"name": "query", "required": true, "description": "Keyword or phrase to search for in Google-indexed public X/Twitter posts."},
+      {"name": "cursor", "required": false, "description": "Pass the cursor returned by the previous response."}
+    ],
+    "credits": 1,
+    "cost_note": "Each successful page costs 1 credit, an empty one included; cursor=null replays are free.",
+    "description": "Search X posts (through Google's index: add the month and year for recent posts)."
+  },
+  {
+    "path": "/v1/twitter/tweet",
+    "method": "GET",
+    "platform": "twitter",
+    "group": "Twitter",
+    "params": [
+      {"name": "url", "required": true, "description": "Tweet URL."},
+      {"name": "trim", "required": false, "description": "Set to true for a trimmed down version of the response."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "description": "Retrieves detailed information about a specific tweet by URL, including the author's profile and engagement metrics."
+  },
+  {
+    "path": "/v1/twitter/tweet/transcript",
+    "method": "GET",
+    "platform": "twitter",
+    "group": "Twitter",
+    "params": [
+      {"name": "allow_long_transcription", "required": false, "description": "Paid opt-in, literal 'true' only. Allows AI transcription of videos over 120 seconds at 10 credits per started minute (all successful AI transcriptions in this mode, short ones too). Leave unset to stay at the flat price."},
+      {"name": "url", "required": true, "description": "Tweet URL."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "paid_params": ["allow_long_transcription"],
+    "cost_note": "Flat 1 credit up to 120 s; no transcript costs 0; allow_long_transcription=true is 10 credits per started minute.",
+    "description": "AI transcript of the video in a tweet."
+  },
+  {
+    "path": "/v1/twitter/user-tweets",
+    "method": "GET",
+    "platform": "twitter",
+    "group": "Twitter",
+    "params": [
+      {"name": "handle", "required": true, "description": "Twitter handle."},
+      {"name": "trim", "required": false, "description": "Set to true for a trimmed down version of the response."}
+    ],
+    "credits": 1,
+    "description": "An X account's tweets (a big account's most popular, not its latest)."
+  },
+  {
+    "path": "/v1/youtube/channel",
+    "method": "GET",
+    "platform": "youtube",
+    "group": "YouTube",
+    "params": [
+      {"name": "channelId", "required": false, "description": "YouTube channel ID. Can pass a channelId, handle or url."},
+      {"name": "handle", "required": false, "description": "YouTube channel handle. Can pass a channelId, handle or url."},
+      {"name": "url", "required": false, "description": "YouTube channel URL. Can pass a channelId, handle or url."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "description": "Retrieves comprehensive YouTube channel profile data."
+  },
+  {
+    "path": "/v1/youtube/channel-videos",
+    "method": "GET",
+    "platform": "youtube",
+    "group": "YouTube",
+    "params": [
+      {"name": "channelId", "required": false, "description": "YouTube channel ID."},
+      {"name": "handle", "required": false, "description": "YouTube channel handle."},
+      {"name": "sort", "required": false, "description": "Sort by latest or popular. One of: latest, popular."},
+      {"name": "continuationToken", "required": false, "description": "Continuation token to get more videos. Get 'continuationToken' from previous response."},
+      {"name": "is_paid_promotions", "required": false, "description": "Set to 'true' to search YouTube's public paid product placement / sponsorship / endorsement search surface."},
+      {"name": "includeExtras", "required": false, "description": "This will get you the like + comment count and the description."}
+    ],
+    "credits": 1,
+    "description": "A YouTube channel's videos, about 30 per call, with view counts."
+  },
+  {
+    "path": "/v1/youtube/channel/community-posts",
+    "method": "GET",
+    "platform": "youtube",
+    "group": "YouTube",
+    "params": [
+      {"name": "channelId", "required": false, "description": "YouTube channel ID."},
+      {"name": "handle", "required": false, "description": "YouTube channel handle."},
+      {"name": "continuationToken", "required": false, "description": "Continuation token to get more community posts."}
+    ],
+    "credits": 1,
+    "description": "Fetches community posts from a YouTube channel's Posts tab."
+  },
+  {
+    "path": "/v1/youtube/channel/lives",
+    "method": "GET",
+    "platform": "youtube",
+    "group": "YouTube",
+    "params": [
+      {"name": "channelId", "required": false, "description": "YouTube channel ID."},
+      {"name": "handle", "required": false, "description": "YouTube channel handle."},
+      {"name": "continuationToken", "required": false, "description": "Continuation token to get more lives. Get 'continuationToken' from previous response."}
+    ],
+    "credits": 1,
+    "description": "Fetches live streams and past streams from a YouTube channel's Live tab."
+  },
+  {
+    "path": "/v1/youtube/channel/playlists",
+    "method": "GET",
+    "platform": "youtube",
+    "group": "YouTube",
+    "params": [
+      {"name": "channelId", "required": false, "description": "YouTube channel ID."},
+      {"name": "handle", "required": false, "description": "YouTube channel handle."},
+      {"name": "continuationToken", "required": false, "description": "Continuation token to get more playlists. Get 'continuationToken' from previous response."}
+    ],
+    "credits": 1,
+    "description": "Fetches playlists from a YouTube channel's Playlists tab."
+  },
+  {
+    "path": "/v1/youtube/channel/search",
+    "method": "GET",
+    "platform": "youtube",
+    "group": "YouTube",
+    "params": [
+      {"name": "handle", "required": true, "description": "YouTube channel handle, with or without @."},
+      {"name": "query", "required": true, "description": "Keywords to search within this channel."},
+      {"name": "continuationToken", "required": false, "description": "Token from the previous response. Keep the same handle and query; stop when the token is null."}
+    ],
+    "credits": 1,
+    "cost_note": "Each successful page costs 1 credit, pages with no matches included; continuationToken=null is free.",
+    "description": "Search inside one YouTube channel using YouTube's native channel search."
+  },
+  {
+    "path": "/v1/youtube/channel/shorts",
+    "method": "GET",
+    "platform": "youtube",
+    "group": "YouTube",
+    "params": [
+      {"name": "handle", "required": false, "description": "Can pass channelId or handle."},
+      {"name": "channelId", "required": false, "description": "Can pass channelId or handle."},
+      {"name": "sort", "required": false, "description": "Sort by newest or popular. One of: newest, popular."},
+      {"name": "continuationToken", "required": false, "description": "Continuation token to get more videos. Get 'continuationToken' from previous response."}
+    ],
+    "credits": 1,
+    "description": "Retrieves a paginated list of short-form videos (Shorts) from a YouTube channel."
+  },
+  {
+    "path": "/v1/youtube/community-post",
+    "method": "GET",
+    "platform": "youtube",
+    "group": "YouTube",
+    "params": [
+      {"name": "url", "required": true, "description": "The URL of the YouTube community post to get."}
+    ],
+    "credits": 1,
+    "description": "Retrieves the full details of a YouTube community post."
+  },
+  {
+    "path": "/v1/youtube/playlist",
+    "method": "GET",
+    "platform": "youtube",
+    "group": "YouTube",
+    "params": [
+      {"name": "playlist_id", "required": true, "description": "The ID of the YouTube playlist. In the YouTube URL it will be the 'list' parameter."},
+      {"name": "continuationToken", "required": false, "description": "Token from the previous response to get the next page."}
+    ],
+    "credits": 1,
+    "description": "Retrieves a page of videos in a YouTube playlist, including each video's title, URL, thumbnail, duration, and channel."
+  },
+  {
+    "path": "/v1/youtube/search",
+    "method": "GET",
+    "platform": "youtube",
+    "group": "YouTube",
+    "params": [
+      {"name": "query", "required": true, "description": "Search query. For stricter title matching, use YouTube's intitle: operator, for example intitle:\"Foursquare Swarm\"."},
+      {"name": "uploadDate", "required": false, "description": "Upload date. One of: today, this_week, this_month, this_year."},
+      {"name": "sortBy", "required": false, "description": "Sort by. One of: relevance, popular."},
+      {"name": "type", "required": false, "description": "Type of content to search for. One of: videos, shorts, channels, playlists."},
+      {"name": "duration", "required": false, "description": "Duration of the video. Only applies to videos (not shorts). One of: under_3_min, between_3_and_20_min, over_20_min."},
+      {"name": "region", "required": false, "description": "2 letter country code of the country to put the proxy in."},
+      {"name": "continuationToken", "required": false, "description": "Continuation token to get more videos. Get 'continuationToken' from previous response."},
+      {"name": "includeExtras", "required": false, "description": "This will get you the like + comment count and the description."}
+    ],
+    "credits": 1,
+    "description": "Search YouTube videos."
+  },
+  {
+    "path": "/v1/youtube/search/hashtag",
+    "method": "GET",
+    "platform": "youtube",
+    "group": "YouTube",
+    "params": [
+      {"name": "hashtag", "required": true, "description": "Hashtag to search for."},
+      {"name": "continuationToken", "required": false, "description": "Continuation token to get more videos. Get 'continuationToken' from previous response."},
+      {"name": "type", "required": false, "description": "Search for all types of content or only shorts. One of: all, shorts."}
+    ],
+    "credits": 1,
+    "description": "Searches YouTube for content matching a specific hashtag and."
+  },
+  {
+    "path": "/v1/youtube/search/typeahead",
+    "method": "GET",
+    "platform": "youtube",
+    "group": "YouTube",
+    "params": [
+      {"name": "query", "required": true, "description": "Partial or complete YouTube search query."}
+    ],
+    "credits": 1,
+    "description": "YouTube's search autocomplete: what people type."
+  },
+  {
+    "path": "/v1/youtube/shorts/trending",
+    "method": "GET",
+    "platform": "youtube",
+    "group": "YouTube",
+    "params": [],
+    "credits": 1,
+    "description": "Fetches approximately 48 currently trending YouTube Shorts (viral/popular short-form videos) per call."
+  },
+  {
+    "path": "/v1/youtube/video",
+    "method": "GET",
+    "platform": "youtube",
+    "group": "YouTube",
+    "params": [
+      {"name": "url", "required": true, "description": "YouTube video or short URL."},
+      {"name": "language", "required": false, "description": "Preferred response language (mapped to Accept-Language header; not guaranteed due to YouTube localization behavior). 2 letter language code, ie 'en', 'es', 'fr' etc."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "description": "Full details of a YouTube video or Short: counts, exact publish date, chapters, keywords, related videos, caption tracks."
+  },
+  {
+    "path": "/v1/youtube/video/comment/replies",
+    "method": "GET",
+    "platform": "youtube",
+    "group": "YouTube",
+    "params": [
+      {"name": "continuationToken", "required": true, "description": "Continuation token for the comment replies. Use 'repliesContinuationToken' from the Comments endpoint, or 'continuationToken' from a previous replies response to paginate."}
+    ],
+    "credits": 1,
+    "description": "Fetches replies to a specific comment on a YouTube video."
+  },
+  {
+    "path": "/v1/youtube/video/comments",
+    "method": "GET",
+    "platform": "youtube",
+    "group": "YouTube",
+    "params": [
+      {"name": "url", "required": true, "description": "YouTube video URL."},
+      {"name": "continuationToken", "required": false, "description": "Continuation token to get more comments. Get 'continuationToken' from previous response."},
+      {"name": "order", "required": false, "description": "Order of comments. One of: top, newest."}
+    ],
+    "credits": 1,
+    "description": "A YouTube video's comments."
+  },
+  {
+    "path": "/v1/youtube/video/sponsors",
+    "method": "GET",
+    "platform": "youtube",
+    "group": "YouTube",
+    "params": [
+      {"name": "url", "required": true, "description": "YouTube video or short URL."},
+      {"name": "language", "required": false, "description": "2 letter language code used for transcript lookup, ie 'en', 'es', 'fr' etc."}
+    ],
+    "credits": 1,
+    "description": "Experimental: suspected sponsors of a YouTube video, inferred from the paid-promotion flag, description, links and transcript."
+  },
+  {
+    "path": "/v1/youtube/video/transcript",
+    "method": "GET",
+    "platform": "youtube",
+    "group": "YouTube",
+    "params": [
+      {"name": "url", "required": true, "description": "YouTube video or short URL."},
+      {"name": "language", "required": false, "description": "Language code, ie 'en', 'es', 'fr' or 'en-US'."},
+      {"name": "original_audio", "required": false, "description": "Set to true to return captions only in the original spoken language identified by YouTube."},
+      {"name": "cache_max_age", "required": false, "description": "Return a cached answer up to this old (1d, 3d, 7d, 14d or 30d) for 0 credits; otherwise a live call at full price. Ignored by endpoints without caching."}
+    ],
+    "credits": 1,
+    "cost_note": "1 credit when a transcript is returned; missing captions cost 0. Never AI.",
+    "description": "A YouTube video's transcript (a video with no caption track costs nothing)."
+  }
+]

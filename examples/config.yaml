@@ -1,0 +1,19 @@
+# scout's global config: copy to ~/.config/scout/config.yaml (or $SCOUT_HOME/config.yaml).
+
+# ScrapeCreators credits scout may spend per calendar day, across every profile and ad-hoc call together. A call that
+# would pass it is never sent. Each profile's lens budgets plus its comment calls must fit under it.
+daily_credit_cap: 100
+
+# Sent with every request; Wikimedia and GitHub ask clients to name themselves.
+# user_agent: "scout/0.1.0 (+https://github.com/OfficialCodeVoyage/scraper)"
+
+# The day the cap and the briefs are counted by (an IANA name); default: the machine's timezone.
+# timezone: Europe/Berlin
+
+# Open-ended spend: paid options with no upper price at ScrapeCreators (allow_long_transcription, 10 credits per
+# started minute of video, however long). Off unless set here; no command-line flag or MCP argument can turn it on.
+# When on, each such call reserves max_credits_per_open_ended_call and is refused when less is left today; a long
+# video can still cost more than that: the ledger records what the answer says it cost (the day's total can then pass
+# the cap), or keeps the reservation when no answer arrives.
+# allow_open_ended_spend: false
+# max_credits_per_open_ended_call: 30

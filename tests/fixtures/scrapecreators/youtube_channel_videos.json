@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "credits_remaining": 1000,
+  "credits_charged": 1,
+  "videos": [
+    {"type": "video", "id": "vid00000010", "url": "https://www.youtube.com/watch?v=vid00000010", "title": "Usual video one", "channel": {"title": "Example Channel"}, "viewCountInt": 1000, "publishedTime": "2026-09-01T10:00:00.000Z"},
+    {"type": "video", "id": "vid00000011", "url": "https://www.youtube.com/watch?v=vid00000011", "title": "Usual video two", "channel": {"title": "Example Channel"}, "viewCountInt": 1000, "publishedTime": "2026-09-08T10:00:00.000Z"},
+    {"type": "video", "id": "vid00000012", "url": "https://www.youtube.com/watch?v=vid00000012", "title": "Usual video three", "channel": {"title": "Example Channel"}, "viewCountInt": 1000, "publishedTime": "2026-09-15T10:00:00.000Z"},
+    {"type": "video", "id": "vid00000013", "url": "https://www.youtube.com/watch?v=vid00000013", "title": "Usual video four", "channel": {"title": "Example Channel"}, "viewCountInt": 1000, "publishedTime": "2026-09-22T10:00:00.000Z"},
+    {"type": "video", "id": "vid00000014", "url": "https://www.youtube.com/watch?v=vid00000014", "title": "Usual video five", "channel": {"title": "Example Channel"}, "viewCountInt": 1000, "publishedTime": "2026-09-29T10:00:00.000Z"},
+    {"type": "video", "id": "vid00000015", "url": "https://www.youtube.com/watch?v=vid00000015", "title": "The breakout video", "channel": {"title": "Example Channel"}, "viewCountInt": 100000, "publishedTime": "2026-10-03T10:00:00.000Z"}
+  ]
+}

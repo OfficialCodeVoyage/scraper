@@ -1,0 +1,37 @@
+{
+  "success": true,
+  "credits_remaining": 1000,
+  "credits_charged": 1,
+  "query": "example query",
+  "posts": [
+    {
+      "rest_id": "1000000000000000001",
+      "url": "https://x.com/fake_handle/status/1000000000000000001",
+      "views": {"count": "780", "state": "EnabledWithCount"},
+      "core": {"user_results": {"result": {"core": {"screen_name": "fake_handle"}}}},
+      "legacy": {
+        "created_at": "Thu Oct 01 18:50:27 +0000 2026",
+        "full_text": "A short example post about a made-up company.\nSecond line of the post.",
+        "favorite_count": 11,
+        "retweet_count": 2,
+        "reply_count": 4,
+        "quote_count": 1,
+        "bookmark_count": 7
+      }
+    },
+    {
+      "rest_id": "1000000000000000002",
+      "views": {"count": "5000"},
+      "note_tweet": {"note_tweet_results": {"result": {"text": "The long form text of an example post that is longer than a normal post."}}},
+      "legacy": {
+        "created_at": "Fri Oct 02 09:00:00 +0000 2026",
+        "full_text": "The long form text of an example post that is longer than...",
+        "favorite_count": 200,
+        "retweet_count": 30,
+        "reply_count": 12
+      }
+    },
+    {"legacy": {"full_text": "A post with no id is dropped", "favorite_count": 1}}
+  ],
+  "cursor": "2"
+}

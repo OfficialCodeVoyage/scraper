@@ -1,0 +1,18 @@
+{
+  "posts": [
+    {
+      "uri": "at://did:plc:fakefakefakefake/app.bsky.feed.post/3kexample001",
+      "author": {"handle": "fake-user.example.test"},
+      "record": {"text": "First line of an example post\nsecond line of it", "createdAt": "2026-10-01T12:00:00.000Z"},
+      "likeCount": 40,
+      "replyCount": 3,
+      "repostCount": 5,
+      "quoteCount": 1
+    },
+    {
+      "uri": "",
+      "author": {"handle": "fake-user.example.test"},
+      "record": {"text": "A post without a uri is dropped"}
+    }
+  ]
+}

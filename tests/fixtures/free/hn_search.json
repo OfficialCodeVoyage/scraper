@@ -1,0 +1,26 @@
+{
+  "hits": [
+    {
+      "objectID": "9000001",
+      "title": "Example Corp files for bankruptcy",
+      "url": "https://example.com/news/example-corp",
+      "author": "fake_hn_user",
+      "points": 321,
+      "num_comments": 88,
+      "created_at_i": 1790000000,
+      "story_text": "<p>Some &amp; text with a <i>tag</i></p>"
+    },
+    {
+      "objectID": "9000002",
+      "title": "Ask HN: a made-up question",
+      "url": null,
+      "author": "fake_hn_user_two",
+      "points": 40,
+      "num_comments": 0,
+      "created_at_i": 1790003600,
+      "story_text": null
+    },
+    {"objectID": "", "title": "A hit without an id is dropped"}
+  ],
+  "nbHits": 3
+}

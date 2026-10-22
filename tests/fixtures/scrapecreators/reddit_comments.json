@@ -1,0 +1,33 @@
+{
+  "success": true,
+  "credits_remaining": 1000,
+  "credits_charged": 1,
+  "comments": [
+    {
+      "id": "c1",
+      "author": "fake_commenter_a",
+      "body": "Is this the same story as the last collapse?",
+      "score": 40,
+      "created_utc": 1790000300,
+      "replies": {
+        "items": [
+          {
+            "id": "c2",
+            "author": "fake_commenter_b",
+            "body": "A reply one level down.",
+            "score": 7,
+            "created_utc": 1790000400,
+            "replies": {
+              "items": [
+                {"id": "c3", "author": "fake_commenter_c", "body": "Two levels down is not read.", "score": 1, "created_utc": 1790000500}
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {"id": "c4", "author": "[deleted]", "body": "A deleted author is skipped.", "score": 3, "created_utc": 1790000600},
+    {"id": "c5", "author": "AutoModerator", "body": "A bot is skipped.", "score": 1, "created_utc": 1790000700},
+    {"id": "c6", "author": "fake_commenter_d", "body": "", "score": 1, "created_utc": 1790000800}
+  ]
+}
